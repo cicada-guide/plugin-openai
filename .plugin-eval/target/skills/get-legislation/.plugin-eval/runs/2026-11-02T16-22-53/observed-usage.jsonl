@@ -1,0 +1,1 @@
+{"id":"get-legislation-case-1","usage":{"input_tokens":340431,"cached_input_tokens":249728,"cache_write_input_tokens":0,"output_tokens":1173,"reasoning_output_tokens":0},"metadata":{"scenario":"Search state bills","scenario_id":"case-1","benchmark_target_name":"get-legislation","benchmark_target_kind":"skill"}}

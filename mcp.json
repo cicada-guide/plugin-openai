@@ -3,7 +3,7 @@
   "mcpServers": {
     "guide-public": {
       "type": "streamable-http",
-      "url": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/mcp-openai",
+      "url": "https://openai.cicada.guide/mcp",
       "extensions": {
         "com.openai": {
           "auth": { "type": "none" }

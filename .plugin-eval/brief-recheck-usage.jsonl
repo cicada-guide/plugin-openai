@@ -1,0 +1,1 @@
+{"id":"get-legislation-case-2","usage":{"input_tokens":508552,"cached_input_tokens":462464,"cache_write_input_tokens":0,"output_tokens":2571,"reasoning_output_tokens":10},"metadata":{"scenario":"Read bill and show workspace","scenario_id":"case-2","benchmark_target_name":"get-legislation","benchmark_target_kind":"skill"}}

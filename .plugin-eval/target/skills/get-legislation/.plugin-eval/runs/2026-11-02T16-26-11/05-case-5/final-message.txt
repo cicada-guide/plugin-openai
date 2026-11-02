@@ -1,0 +1,12 @@
+Saved to [answer.md](/C:/Users/forre/AppData/Local/Temp/plugin-eval-case-5-iVabkt/workspace/answer.md).
+
+Found **Texas HB1 — General Appropriations Bill.**, in the **2025 Regular Session**. Your explicit Texas request overrides your Alabama default for this lookup.
+
+- **Recorded status:** Introduced; record dated February 25, 2025. This does not confirm its present status.
+- **Sponsor:** Greg Bonnen (R).
+- **Floor votes:** No recorded roll calls in the returned dataset.
+- **Document:** [Introduced bill, dated January 22, 2025](https://capitol.texas.gov/tlodocs/89R/billtext/html/HB00001I.htm).
+
+The document tool returned an HTML notice directing readers to a PDF. Substantive bill text could not be read, so no provisions are summarized.
+
+Source: configured guide-public MCP search, dossier, and latest-document results. Bill ID: `29c1c74c-fbc9-4fbc-a5e1-012f52bb75cb`.

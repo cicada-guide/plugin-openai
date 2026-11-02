@@ -1,0 +1,8 @@
+# Recreated from source by prepare.mjs.
+fixture/
+target/skills/*/SKILL.md
+target/skills/*/references/
+# Startup diagnostics may contain private configuration details.
+**/codex.stderr.log
+**/codex-version.stderr.log
+unsupported-model-run/

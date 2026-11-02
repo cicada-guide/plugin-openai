@@ -1,0 +1,48 @@
+{
+  "kind": "plugin-eval-benchmark",
+  "schemaVersion": 2,
+  "version": 2,
+  "targetKind": "skill",
+  "targetName": "get-legislation",
+  "runner": {
+    "type": "codex-cli",
+    "model": "gpt-6.1-sol",
+    "sandbox": "workspace-write",
+    "approvalPolicy": "never",
+    "extraArgs": [
+      "-c",
+      "mcp_servers.guide-public.url=\"https://openai.cicada.guide/mcp\""
+    ]
+  },
+  "workspace": {
+    "sourcePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\fixture",
+    "setupMode": "copy",
+    "preserve": "never"
+  },
+  "targetProvisioning": {
+    "mode": "isolated-skill-home"
+  },
+  "verifiers": {
+    "commands": []
+  },
+  "notes": [
+    "Codex compatibility benchmark, not native ChatGPT plugin installation or rendering.",
+    "All four source skills copied unchanged. Natural review prompts are wrapped with explicit skill-loading instructions.",
+    "Harness completed status only means process completion. Review tool traces and answers against successChecklist separately.",
+    "No shell verifiers: upstream harness hardcodes /bin/zsh, unavailable on Windows.",
+    "Token usage is full CLI context, not isolated incremental skill cost. One run per case; no statistical reliability claim."
+  ],
+  "scenarios": [
+    {
+      "id": "case-1",
+      "title": "Search state bills",
+      "purpose": "Search state bills. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+      "userInput": "Use the unchanged local Cicada Guide skills in .agents/skills. Read get-legislation/SKILL.md and the relevant task skill before answering. Use only the configured guide-public MCP tools for legislative facts. Do not use web search, shell HTTP requests, or outside knowledge as substitutes. Do not edit the skills, install anything, publish, or contact officials. Answer this user request: Find Alabama HB591 from the 2026 Regular Session.\n\nSave your answer to answer.md and include it in your final response.",
+      "successChecklist": [
+        "Resolve Alabama and the 2026 Regular Session to returned UUIDs, search bill HB591 within them, report only matching candidates and show the results card.",
+        "Expected tool coverage: list_states, list_sessions, search_bills",
+        "Answer is supported by returned evidence; missing data and errors are disclosed."
+      ]
+    }
+  ]
+}

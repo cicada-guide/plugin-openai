@@ -1,0 +1,3 @@
+I couldn’t complete the lookup because the environment blocked access to the required local skill files. Its read-only policy also prevents saving `answer.md`.
+
+I haven’t substituted web sources or outside knowledge. Please enable local skill-file access and workspace writes so I can follow your instructions and save the answer.

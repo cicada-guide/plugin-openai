@@ -1,0 +1,318 @@
+{
+  "kind": "benchmark-run",
+  "createdAt": "2026-11-02T16:35:41.215Z",
+  "mode": "codex-cli",
+  "target": {
+    "kind": "skill",
+    "path": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation",
+    "entryPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\SKILL.md",
+    "name": "get-legislation",
+    "relativePath": ".plugin-eval/target/skills/get-legislation"
+  },
+  "codexVersion": "codex-cli 0.166.0-alpha.5.1",
+  "config": {
+    "source": "file",
+    "path": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\pilot.json",
+    "runnerType": "codex-cli",
+    "model": "gpt-6.1-sol",
+    "sandbox": "workspace-write",
+    "approvalPolicy": "never",
+    "scenarioCount": 1,
+    "workspaceSourcePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\fixture",
+    "workspaceSetupMode": "copy",
+    "workspacePreserve": "never",
+    "targetProvisioningMode": "isolated-skill-home",
+    "verifierCount": 0
+  },
+  "runDirectory": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T16-34-46",
+  "usageLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\pilot-usage.jsonl",
+  "resultPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\pilot-result.json",
+  "summary": {
+    "scenarioCount": 1,
+    "completedScenarios": 1,
+    "failedScenarios": 0,
+    "sampleCount": 1,
+    "usageAvailability": "present",
+    "averageInputTokens": 349993,
+    "averageOutputTokens": 1385,
+    "averageTotalTokens": 351378,
+    "generatedFileCount": 1,
+    "generatedTestFileCount": 0,
+    "toolCallCount": 0,
+    "shellCommandCount": 0,
+    "failedShellCommands": 0,
+    "verifierPassCount": 0,
+    "verifierFailCount": 0
+  },
+  "scenarios": [
+    {
+      "id": "case-1",
+      "title": "Search state bills",
+      "purpose": "Search state bills. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+      "successChecklist": [
+        "Resolve Alabama and the 2026 Regular Session to returned UUIDs, search bill HB591 within them, report only matching candidates and show the results card.",
+        "Expected tool coverage: list_states, list_sessions, search_bills",
+        "Answer is supported by returned evidence; missing data and errors are disclosed."
+      ],
+      "status": "completed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 53888,
+      "prompt": "Use the unchanged local Cicada Guide skills in .agents/skills. Read get-legislation/SKILL.md and the relevant task skill before answering. Use only the configured guide-public MCP tools for legislative facts. Do not use web search, shell HTTP requests, or outside knowledge as substitutes. Do not edit the skills, install anything, publish, or contact officials. Answer this user request: Find Alabama HB591 from the 2026 Regular Session.\n\nSave your answer to answer.md and include it in your final response.",
+      "finalMessagePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T16-34-46\\01-case-1\\final-message.txt",
+      "finalMessagePreview": "Found **Alabama HB591, 2026 Regular Session**: “Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026.”\n\nIt appropriates up to **$203,404,327** for rural health initiatives and creates legislative oversight. Recorded status: **Passed**, dated April 13, 2026. The returned records do not establish enactment.\n\n[Official enrolled bill](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf)\n\nSaved the answer, including sponsors, relevant votes, sources, and limitations, to [answer.md](C:/Users/forre/AppData/Local/Temp/plugin-eval-case-1-yUk8zd/workspace/answer.md).",
+      "rawEventLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T16-34-46\\01-case-1\\codex.stdout.jsonl",
+      "stderrLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T16-34-46\\01-case-1\\codex.stderr.log",
+      "usage": {
+        "input_tokens": 349993,
+        "output_tokens": 1385,
+        "total_tokens": 351378,
+        "raw": {
+          "input_tokens": 349993,
+          "cached_input_tokens": 287232,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1385,
+          "reasoning_output_tokens": 0
+        }
+      },
+      "usageAvailability": "present",
+      "telemetry": {
+        "threadId": "01a19d1d-046a-7300-99ab-b1cb27c5895b",
+        "eventCount": 28,
+        "ignoredLineCount": 0,
+        "finalStatus": "completed",
+        "errorMessages": [],
+        "toolCallCount": 0,
+        "shellCommandCount": 0,
+        "failedShellCommandCount": 0,
+        "toolNames": [],
+        "shellCommands": [],
+        "usage": {
+          "input_tokens": 349993,
+          "output_tokens": 1385,
+          "total_tokens": 351378,
+          "raw": {
+            "input_tokens": 349993,
+            "cached_input_tokens": 287232,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1385,
+            "reasoning_output_tokens": 0
+          }
+        },
+        "usageAvailability": "present"
+      },
+      "workspacePath": null,
+      "workspaceSummary": {
+        "addedFileCount": 1,
+        "modifiedFileCount": 0,
+        "deletedFileCount": 0,
+        "changedFileCount": 1,
+        "generatedFileCount": 1,
+        "generatedTestFileCount": 0,
+        "changedTestFileCount": 0,
+        "changedTextLineDelta": 16,
+        "changedFiles": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 16,
+            "lineDelta": 16
+          }
+        ],
+        "allChanges": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 16,
+            "lineDelta": 16
+          }
+        ]
+      },
+      "workspaceChanges": [
+        {
+          "path": "answer.md",
+          "status": "added",
+          "isText": true,
+          "lineCountBefore": 0,
+          "lineCountAfter": 16,
+          "lineDelta": 16
+        }
+      ],
+      "generatedCode": {
+        "checks": [
+          {
+            "id": "coverage-artifacts-unavailable",
+            "category": "coverage",
+            "severity": "info",
+            "status": "info",
+            "message": "No coverage artifacts were found for this target.",
+            "evidence": [
+              "../../../AppData/Local/Temp/plugin-eval-case-1-yUk8zd/workspace"
+            ],
+            "remediation": [
+              "Generate `lcov.info`, `coverage.xml`, or an Istanbul coverage JSON file if you want coverage scoring."
+            ],
+            "source": "core"
+          }
+        ],
+        "metrics": [
+          {
+            "id": "coverage_artifact_count",
+            "category": "coverage",
+            "value": 0,
+            "unit": "files",
+            "band": "info",
+            "source": "core"
+          }
+        ],
+        "artifacts": []
+      },
+      "verifierResults": [],
+      "installedTargetPath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-case-1-yUk8zd\\home\\.codex\\skills\\get-legislation",
+      "codexHomePath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-case-1-yUk8zd\\home\\.codex"
+    }
+  ],
+  "nextSteps": [
+    "Analyze the observed usage with: plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/pilot-usage.jsonl --format markdown",
+    "Review the measurement plan with: plugin-eval measurement-plan ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/pilot-usage.jsonl --format markdown"
+  ],
+  "workflowGuide": {
+    "kind": "workflow-guide",
+    "createdAt": "2026-11-02T16:35:41.216Z",
+    "target": {
+      "kind": "skill",
+      "path": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation",
+      "entryPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\SKILL.md",
+      "name": "get-legislation",
+      "relativePath": ".plugin-eval/target/skills/get-legislation"
+    },
+    "requestedGoal": "measure",
+    "requestedChatPrompt": null,
+    "requestRouting": null,
+    "recommendedWorkflowId": "measure",
+    "recommendedWorkflow": {
+      "id": "measure",
+      "label": "Measure Real Token Usage",
+      "chatPrompt": "Measure the real token usage of this skill.",
+      "summary": "Use this when you want real token usage instead of only the static estimate.",
+      "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "commands": [
+        "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+        "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+      ],
+      "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Measure the real token usage of this skill.' --format markdown"
+    },
+    "workflowStatus": {
+      "hasBenchmarkConfig": false,
+      "hasUsageLog": false
+    },
+    "beginnerSummary": "Start with a natural chat request, then let plugin-eval show the exact local command sequence behind it.",
+    "startHere": {
+      "chatPrompt": "Measure the real token usage of this skill.",
+      "label": "Measure Real Token Usage",
+      "summary": "Use this when you want real token usage instead of only the static estimate.",
+      "routingExplanation": "Plugin Eval recommended Measure Real Token Usage from the current local state for this skill.",
+      "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Measure the real token usage of this skill.' --format markdown",
+      "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "commands": [
+        "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+        "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+      ]
+    },
+    "entrypoints": [
+      {
+        "id": "analysis",
+        "label": "Full Skill Analysis",
+        "chatPrompt": "Give me a full analysis of this skill, including benchmark setup.",
+        "summary": "Use this when you want the full report and starter benchmark setup for this skill in one guided path.",
+        "firstCommand": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+          "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+          "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Give me a full analysis of this skill, including benchmark setup.' --format markdown"
+      },
+      {
+        "id": "evaluate",
+        "label": "Evaluate Skill",
+        "chatPrompt": "Evaluate this skill.",
+        "summary": "Start here when you want the overall report for a skill, including structure, budgets, and code checks.",
+        "firstCommand": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Evaluate this skill.' --format markdown"
+      },
+      {
+        "id": "budget",
+        "label": "Explain Token Budget",
+        "chatPrompt": "Explain the token budget for this skill.",
+        "summary": "Use this when the main question is why the skill feels expensive before you collect any live measurements.",
+        "firstCommand": "plugin-eval explain-budget ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval explain-budget ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Explain the token budget for this skill.' --format markdown"
+      },
+      {
+        "id": "measure",
+        "label": "Measure Real Token Usage",
+        "chatPrompt": "Measure the real token usage of this skill.",
+        "summary": "Use this when you want real token usage instead of only the static estimate.",
+        "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "commands": [
+          "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+          "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Measure the real token usage of this skill.' --format markdown"
+      },
+      {
+        "id": "benchmark",
+        "label": "Benchmark With Starter Scenarios",
+        "chatPrompt": "Help me benchmark this skill.",
+        "summary": "Use this when you want starter scenarios and a repeatable real-Codex benchmark run for this skill.",
+        "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "commands": [
+          "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Help me benchmark this skill.' --format markdown"
+      },
+      {
+        "id": "next",
+        "label": "Start Here",
+        "chatPrompt": "What should I run next?",
+        "summary": "If you are new to plugin-eval, start with the overall evaluation report for this skill.",
+        "firstCommand": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'What should I run next?' --format markdown"
+      }
+    ],
+    "nextSteps": [
+      "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+      "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+    ],
+    "nextAction": {
+      "label": "Measure Real Token Usage",
+      "why": "Plugin Eval recommended Measure Real Token Usage from the current local state for this skill.",
+      "command": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "chatPrompt": "Measure the real token usage of this skill."
+    }
+  },
+  "nextAction": {
+    "label": "Fold the usage log back into analysis",
+    "why": "The Codex run produced observed usage, so the next step is to re-run analysis with those measurements.",
+    "command": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/pilot-usage.jsonl --format markdown",
+    "chatPrompt": "What should I run next?"
+  }
+}

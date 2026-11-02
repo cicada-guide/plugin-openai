@@ -1,0 +1,7 @@
+Found **Alabama HB591, 2026 Regular Session**: “Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026.”
+
+It provides up to **$203,404,327** in federal funding for rural health initiatives and creates legislative oversight. Recorded status: **Passed**, dated April 13, 2026. The enrolled label alone does not establish governor approval.
+
+[Read the enrolled bill](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf).
+
+Saved the answer with sponsor information, recorded votes, and limitations to [answer.md](answer.md).

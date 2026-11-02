@@ -9,7 +9,7 @@ Research U.S. state bills, text, sponsors, recorded votes, and legislator contac
 - `plugin.json`: Agent Plugins 1.0 identity, listing, review cases, and publication metadata.
 - `mcp.json`: anonymous Streamable HTTP connection named `guide-public`.
 - `skills/`: four workflows and supporting references.
-- `assets/`: original SVG artwork, light/dark palette variants, and 512px PNGs.
+- `assets/`: creator-supplied PNG artwork and square 512px PNGs for both themes.
 - `scripts/`, `tests/`, `schemas/`: validation tools, excluded from the upload.
 - `docs/`: submission materials and dated evidence, excluded from the upload.
 

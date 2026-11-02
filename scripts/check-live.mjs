@@ -1,5 +1,5 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
-const endpoint = 'https://cicada-guide-mcp-openai.cicada-bot.workers.dev/mcp-openai';
+const endpoint = 'https://openai.cicada.guide/mcp';
 let id = 0, session;
 const evidence = { checkedAt: new Date().toISOString(), endpoint, calls: [] };
 async function rpc(method, params) {

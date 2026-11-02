@@ -2,9 +2,11 @@
 
 Checked November 2, 2026.
 
+Pre-upload recheck: source validation and all nine tests passed again. Live MCP checks and public-page inspection were rerun; their evidence files were refreshed. All four listing URLs returned HTTP 200 and their content was inspected. The connector landing page still omits the intended publisher, and the linked GitHub support destination returns HTTP 404. The manifest already points to the working help center. No package validation failure was found; the missing recording URL and manual readiness gates remain unresolved.
+
 | Check | Result |
 | --- | --- |
-| Source/schema/component checks | Passed: 18 packaged files, four skills, two PNG theme variants |
+| Source/schema/component checks | Passed: 17 packaged files, four skills, supplied PNG source and two generated PNG theme entries |
 | Node test runner | Passed: nine tests |
 | Package archive | Reopened, inventory checked, every entry compared with source bytes; see `dist/archive-report.json` |
 | Dependency audit | Zero reported vulnerabilities after locked development dependencies were updated |

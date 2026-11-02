@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02T14:53:45.452Z",
+  "checkedAt": "2026-11-02T15:46:27.275Z",
   "pages": [
     {
       "url": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/",
@@ -69,7 +69,9 @@
       "url": "https://cicadaguide.featurebase.app/help",
       "finalUrl": "https://cicadaguide.featurebase.app/help",
       "status": 200,
-      "text": " cicada.guide Skip to main content Cicada Feedback Roadmap Help Center More Search… Toggle theme Sign in Sign up Open main menu Open navigation : Help Center cicada.run Get Started cicada.buzz Get Started cicada.guide Get Started How can we help you? Search for any helpful articles from our team to find an answer to your question. Search ... ⌘K cicada.run 8 articles cicada.buzz 9 articles cicada.guide 7 articles Powered by Featurebase "
+      "title": "cicada.guide",
+      "text": " cicada.guide Skip to main content Cicada Feedback Roadmap Help Center More Search… Toggle theme Sign in Sign up Open main menu Open navigation : Help Center cicada.run Get Started cicada.buzz Get Started cicada.guide Get Started How can we help you? Search for any helpful articles from our team to find an answer to your question. Search ... ⌘K cicada.run 8 articles cicada.buzz 9 articles cicada.guide 7 articles Powered by Featurebase ",
+      "policyLinks": []
     }
   ]
 }

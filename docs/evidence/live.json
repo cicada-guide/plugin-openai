@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-11-02T14:50:34.034Z",
-  "endpoint": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/mcp-openai",
+  "checkedAt": "2026-11-02T15:54:37.834Z",
+  "endpoint": "https://openai.cicada.guide/mcp",
   "calls": [
     {
       "method": "initialize",
@@ -6748,14 +6748,14 @@
         "content": [
           {
             "type": "text",
-            "text": "{\n  \"count\": 1,\n  \"has_more\": false,\n  \"next_cursor\": null,\n  \"retrieved_at\": \"2026-11-02T14:50:41.812Z\",\n  \"source_freshness\": \"2026-09-28T10:05:38.060322+00:00\",\n  \"ordering\": [\n    \"rollcall.date DESC\",\n    \"rollcall.id DESC\",\n    \"vote.id DESC\"\n  ],\n  \"active_filters\": {\n    \"people_id\": \"6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c\",\n    \"latest\": true\n  },\n  \"items\": [\n    {\n      \"vote\": {\n        \"id\": \"b9712bb6-9b53-4706-bc53-f7c88532339b\",\n        \"category\": \"YEA\"\n      },\n      \"person\": {\n        \"id\": \"6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c\",\n        \"name\": \"Rex Reynolds\",\n        \"party\": \"R\"\n      },\n      \"rollcall\": {\n        \"id\": \"5d823b81-d10a-4686-8f4f-646fd53019cd\",\n        \"date\": \"2026-05-08\",\n        \"description\": \"Lee motion to Previous Question - Roll Call 3\",\n        \"outcome\": {\n          \"yea\": 75,\n          \"nay\": 29,\n          \"absent\": 1,\n          \"nv\": 0\n        }\n      },\n      \"bill\": {\n        \"id\": \"f66ee075-4297-437f-9a0d-29e3d7d8559a\",\n        \"bill\": \"SB1\",\n        \"title\": \"Elections; special primary election for redistricting certain State Senate districts authorized in certain circumstances\",\n        \"status\": \"Passed\",\n        \"subjects\": [\n          \"Elections, Voting, & Campaigns\"\n        ],\n        \"session_id\": \"f94a3ee8-fcfe-45a5-9c23-eddfaa0b6009\",\n        \"division_id\": \"5cbbd708-9463-4671-966d-397db4e1a9fd\",\n        \"source_url\": null,\n        \"type\": \"Bill\"\n      }\n    }\n  ]\n}"
+            "text": "{\n  \"count\": 1,\n  \"has_more\": false,\n  \"next_cursor\": null,\n  \"retrieved_at\": \"2026-11-02T15:54:41.489Z\",\n  \"source_freshness\": \"2026-09-28T10:05:38.060322+00:00\",\n  \"ordering\": [\n    \"rollcall.date DESC\",\n    \"rollcall.id DESC\",\n    \"vote.id DESC\"\n  ],\n  \"active_filters\": {\n    \"people_id\": \"6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c\",\n    \"latest\": true\n  },\n  \"items\": [\n    {\n      \"vote\": {\n        \"id\": \"b9712bb6-9b53-4706-bc53-f7c88532339b\",\n        \"category\": \"YEA\"\n      },\n      \"person\": {\n        \"id\": \"6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c\",\n        \"name\": \"Rex Reynolds\",\n        \"party\": \"R\"\n      },\n      \"rollcall\": {\n        \"id\": \"5d823b81-d10a-4686-8f4f-646fd53019cd\",\n        \"date\": \"2026-05-08\",\n        \"description\": \"Lee motion to Previous Question - Roll Call 3\",\n        \"outcome\": {\n          \"yea\": 75,\n          \"nay\": 29,\n          \"absent\": 1,\n          \"nv\": 0\n        }\n      },\n      \"bill\": {\n        \"id\": \"f66ee075-4297-437f-9a0d-29e3d7d8559a\",\n        \"bill\": \"SB1\",\n        \"title\": \"Elections; special primary election for redistricting certain State Senate districts authorized in certain circumstances\",\n        \"status\": \"Passed\",\n        \"subjects\": [\n          \"Elections, Voting, & Campaigns\"\n        ],\n        \"session_id\": \"f94a3ee8-fcfe-45a5-9c23-eddfaa0b6009\",\n        \"division_id\": \"5cbbd708-9463-4671-966d-397db4e1a9fd\",\n        \"source_url\": null,\n        \"type\": \"Bill\"\n      }\n    }\n  ]\n}"
           }
         ],
         "structuredContent": {
           "count": 1,
           "has_more": false,
           "next_cursor": null,
-          "retrieved_at": "2026-11-02T14:50:41.812Z",
+          "retrieved_at": "2026-11-02T15:54:41.489Z",
           "source_freshness": "2026-09-28T10:05:38.060322+00:00",
           "ordering": [
             "rollcall.date DESC",

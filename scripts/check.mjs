@@ -62,7 +62,7 @@ export function checkFiles(files) {
   const servers = Object.entries(mcp.mcpServers);
   expect(servers.length === 1 && servers[0][0] === 'guide-public', 'Expected one guide-public server');
   const server = mcp.mcpServers['guide-public'];
-  expect(server.type === 'streamable-http' && server.url === 'https://cicada-guide-mcp-openai.cicada-bot.workers.dev/mcp-openai', 'Wrong endpoint/transport');
+  expect(server.type === 'streamable-http' && server.url === 'https://openai.cicada.guide/mcp', 'Wrong endpoint/transport');
   expect(!server.headers && server.extensions?.['com.openai']?.auth?.type === 'none', 'Anonymous connection requires explicit auth none and no credential headers');
   const cases = openai.review.test_cases;
   expect(cases.positive.length === 5 && cases.negative.length === 3, 'Expected five positive and three negative cases');
