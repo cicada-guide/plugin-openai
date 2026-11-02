@@ -1,0 +1,101 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cicada-guide",
+  "version": "0.1.0",
+  "description": "Research U.S. state bills, legislative text, recorded votes, and legislator contacts.",
+  "author": {
+    "name": "Forrest Satterfield"
+  },
+  "license": "Apache-2.0",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Cicada Guide",
+        "shortDescription": "Research state legislation",
+        "longDescription": "Research U.S. state legislation with sourced bill briefs, recorded voting histories, and legislator contact details. Explore bill results, bill workspaces, voting records, and contact cards. Read-only public records; no account or payment required. Coverage and freshness depend on the available records. Does not cover Congress or identify representatives by address, rank legislators, predict votes, or contact officials.",
+        "developerName": "Forrest Satterfield",
+        "category": "Education & Research",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "Brief me on Alabama HB591 from the 2026 Regular Session, including text, sponsors, and floor votes.",
+          "How did Alabama Representative Rex Reynolds vote most recently?",
+          "How can I contact Alabama Representative Rex Reynolds?"
+        ],
+        "logo": "./assets/logo-light.png",
+        "composerIcon": "./assets/logo-light.png",
+        "logoDark": "./assets/logo-dark.png",
+        "composerIconDark": "./assets/logo-dark.png",
+        "brandColor": "#171713",
+        "brandColorDark": "#C9A227",
+        "websiteURL": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/",
+        "privacyPolicyURL": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/privacy",
+        "supportURL": "https://cicadaguide.featurebase.app/help",
+        "termsOfServiceURL": "https://cicada.guide/terms-and-conditions"
+      },
+      "review": {
+        "prompts": [
+          "Find Alabama HB591 from the 2026 Regular Session.",
+          "Brief me on Alabama HB591 from the 2026 Regular Session, including text, sponsors, and floor votes.",
+          "How did Alabama Representative Rex Reynolds vote most recently?"
+        ],
+        "commerce": false,
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search state bills. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+              "prompt": "Find Alabama HB591 from the 2026 Regular Session.",
+              "tools_triggered": "list_states, list_sessions, search_bills",
+              "expected_behavior": "Resolve Alabama and the 2026 Regular Session to returned UUIDs, search bill HB591 within them, report only matching candidates and show the results card."
+            },
+            {
+              "description": "Read bill and show workspace. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+              "prompt": "Brief me on Alabama HB591 from the 2026 Regular Session, including text, sponsors, and floor votes.",
+              "tools_triggered": "list_states, list_sessions, search_bills, get_bill_dossier, get_latest_bill_document, get_rollcalls, show_bill",
+              "expected_behavior": "Resolve exact bill; read all text chunks before summarizing, or disclose unavailable text. Preserve roll-call tallies and dated status. Show bill with id, headline and summary grounded in returned evidence."
+            },
+            {
+              "description": "Recorded voting history. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+              "prompt": "How did Alabama Representative Rex Reynolds vote most recently?",
+              "tools_triggered": "search_people, show_person_record, get_person_votes",
+              "expected_behavior": "Verify identity and Alabama seat or vote context, then report latest recorded date, measure, position and tally with coverage limits; display person record. Do not invent within-day order."
+            },
+            {
+              "description": "Recorded contact details. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+              "prompt": "How can I contact Alabama Representative Rex Reynolds?",
+              "tools_triggered": "search_people, get_person, show_official",
+              "expected_behavior": "Verify identity and state; report only recorded contact and seat values, disclose missing fields, show official card, and send no message."
+            },
+            {
+              "description": "Conversation default override. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
+              "prompt": "For this task my default state is Alabama. Now find Texas HB1 in the 2025 Regular Session.",
+              "tools_triggered": "list_states, list_sessions, search_bills",
+              "expected_behavior": "Resolve Texas and its requested session, search HB1 only in Texas despite the Alabama default. Ask about ambiguity rather than guessing."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Federal legislation. Setup: fresh chat with Cicada Guide enabled. Explain state-only coverage; do not invoke legislative tools for a federal search.",
+              "prompt": "Find the U.S. congressional text of H.R. 1."
+            },
+            {
+              "description": "Legislator rankings. Setup: fresh chat with Cicada Guide enabled. Decline ranking and prediction before any tool call; offer recorded votes or sponsorship.",
+              "prompt": "Rank Alabama legislators from most liberal to most conservative and predict their next votes."
+            },
+            {
+              "description": "Address lookup. Setup: fresh chat with Cicada Guide enabled. Ask for legislator name and state without collecting an address or invoking a nonexistent address lookup.",
+              "prompt": "Who is my state senator? Use my home address."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Initial ChatGPT package: four state legislative research skills, anonymous OpenAI MCP connection, and light/dark icon entries.",
+        "countries": [
+          "US"
+        ]
+      }
+    }
+  }
+}

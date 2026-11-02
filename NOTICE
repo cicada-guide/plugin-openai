@@ -1,0 +1,5 @@
+Cicada Guide ChatGPT plugin
+Adapted from cicada-guide/plugin-anthropic and cicada-guide/mcp-openai.
+Copyright 2026 Cicada Bot, LLC. Licensed under Apache-2.0.
+OpenAI packaging and workflow adaptation: Forrest Satterfield.
+Cicada Guide artwork is retained; the light variant changes only native SVG palette values.

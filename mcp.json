@@ -1,0 +1,14 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "guide-public": {
+      "type": "streamable-http",
+      "url": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/mcp-openai",
+      "extensions": {
+        "com.openai": {
+          "auth": { "type": "none" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local validation of this plugin's documented OpenAI anonymous MCP extension",
+  "$comment": "Project-specific constraint, not an official OpenAI schema. Source: https://developers.openai.com/plugins/build/plugins#configure-mcp-authentication ; checked 2026-11-02.",
+  "type": "object",
+  "required": ["com.openai"],
+  "additionalProperties": false,
+  "properties": {
+    "com.openai": {
+      "type": "object",
+      "required": ["auth"],
+      "additionalProperties": false,
+      "properties": {
+        "auth": {
+          "type": "object",
+          "required": ["type"],
+          "additionalProperties": false,
+          "properties": { "type": { "const": "none" } }
+        }
+      }
+    }
+  }
+}
