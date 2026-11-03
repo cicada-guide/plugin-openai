@@ -21,7 +21,10 @@ try {
   await rpc('notifications/initialized');
   const { tools } = await rpc('tools/list');
   const { resources } = await rpc('resources/list');
-  if (tools.length !== 17 || resources.length !== 4) throw new Error(`Expected 17 tools and 4 resources, got ${tools.length}/${resources.length}`);
+  const statusTool = tools.find(tool => tool.name === 'show_status');
+  const expected = statusTool ? [18, 5] : [17, 4];
+  if (tools.length !== expected[0] || resources.length !== expected[1]) throw new Error(`Expected ${expected[0]} tools and ${expected[1]} resources, got ${tools.length}/${resources.length}`);
+  if (statusTool && !resources.some(resource => resource.uri === statusTool._meta?.ui?.resourceUri)) throw new Error('Status card resource missing');
   for (const t of tools) for (const hint of ['readOnlyHint', 'openWorldHint', 'destructiveHint']) if (typeof t.annotations?.[hint] !== 'boolean') throw new Error(`${t.name}: missing ${hint}`);
   for (const r of resources) await rpc('resources/read', { uri: r.uri });
   const call = async (name, args = {}) => {
@@ -32,6 +35,11 @@ try {
     if (result.isError || result.content?.some(c => /^Error:|^MCP error/.test(c.text ?? ''))) throw new Error(`${name}: ${JSON.stringify(result).slice(0, 400)}`);
     return result.structuredContent ?? result;
   };
+  if (statusTool) {
+    const message = 'Which state would you like to research?';
+    const status = await call('show_status', { kind: 'clarification', message });
+    if (status.kind !== 'clarification' || status.message !== message) throw new Error('Unexpected status card payload');
+  }
   const states = await call('list_states', { response_format: 'json' });
   const state = states.items.find(s => s.name === 'Alabama');
   if (!state) throw new Error('Alabama unavailable');

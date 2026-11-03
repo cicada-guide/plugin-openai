@@ -14,4 +14,4 @@ Retrieve get_rollcall_breakdown only for requested party/member positions and di
 
 Write identification, dated status, text-grounded provisions, sponsors, relevant votes, sources, and gaps. An enrolled label does not establish enactment. General governor-action guidance never establishes this bill's outcome. Do not fill missing facts from outside knowledge.
 
-Call show_bill with verified id, plain headline of 1–120 characters, and a summary based on results actually read. When text is unavailable, derive the headline from the official title and disclose that limitation in the summary. Written research must remain useful without the card.
+Call show_bill with verified id, plain headline of 1–120 characters, and a summary based on results actually read. When text is unavailable, derive the headline from the official title and disclose that limitation in the summary. Put the research and its limitations in the card.

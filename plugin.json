@@ -76,15 +76,15 @@
           ],
           "negative": [
             {
-              "description": "Federal legislation. Setup: fresh chat with Cicada Guide enabled. Explain state-only coverage; do not invoke legislative tools for a federal search.",
+              "description": "Federal legislation. Setup: fresh chat with Cicada Guide enabled. Explain state-only coverage in show_status without calling research tools.",
               "prompt": "Find the U.S. congressional text of H.R. 1."
             },
             {
-              "description": "Legislator rankings. Setup: fresh chat with Cicada Guide enabled. Decline ranking and prediction before any tool call; offer recorded votes or sponsorship.",
+              "description": "Legislator rankings. Setup: fresh chat with Cicada Guide enabled. Decline ranking and prediction in show_status and offer recorded votes or sponsorship without calling research tools.",
               "prompt": "Rank Alabama legislators from most liberal to most conservative and predict their next votes."
             },
             {
-              "description": "Address lookup. Setup: fresh chat with Cicada Guide enabled. Ask for legislator name and state without collecting an address or invoking a nonexistent address lookup.",
+              "description": "Address lookup. Setup: fresh chat with Cicada Guide enabled. Ask for legislator name and state in show_status without collecting an address or invoking a research tool.",
               "prompt": "Who is my state senator? Use my home address."
             }
           ]

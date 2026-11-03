@@ -17,6 +17,8 @@ The installed skill uses live tool definitions. The [17-tool schema snapshot](to
 
 The compact guidance passed five directed Codex CLI cases covering exact lookup, a complete dossier brief, roll-call pagination, invalid-offset recovery, and person-vote cursor continuation. The lookup loaded no supporting references, and the brief loaded only its bill procedure. These checks used the public MCP server with explicit skill loading. Native ChatGPT rendering remains unverified.
 
+The public MCP endpoint exposes show_status and its card resource. Live checks returned clarification, unsupported, information, and error payloads. The revised package still needs to pass the card-only behavior checks and native ChatGPT rendering.
+
 ## Remaining gates
 
 1. **ChatGPT verification:** the creator manually uploaded a new 0.1.0 draft in the cicada.bot organization, distinct from the older draft first inspected. Imported trigger descriptions and the openai.cicada.guide/mcp endpoint match the revised package. Anonymous connection and discovery of all 17 tools completed. The portal scan flags show_bill's template CSP as missing or too broad; domain verification and review information remain incomplete, and skill checks were still running at the last observation. The draft is not submitted or published. ChatGPT's installed-plugin search found no Cicada match, and the inspected draft menus offered no preview/install route. Exact-package rendering and the native [review cases](review-cases.md) remain unverified. See `.plugin-eval/pagination-recovery.md` and [scan screenshot](evidence/portal-csp-finding.jpg).

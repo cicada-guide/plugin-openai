@@ -4,7 +4,7 @@ description: Use when a user runs Cicada Guide setup, asks how to get started, o
 ---
 # Get started with Cicada Guide
 
-Help the user reach their first useful research result. Reuse any task, state, session, or legislator already supplied in the conversation; do not restart onboarding or make a clear request wait for setup questions.
+Follow the shared card and connection rules for all onboarding responses. Use show_status for introductions, setup questions, and recoverable errors. Help the user reach their first useful research result. Reuse any task, state, session, or legislator already supplied in the conversation; do not restart onboarding or make a clear request wait for setup questions.
 
 For a new user without a task, briefly explain that Cicada Guide researches U.S. state legislation and recorded legislator information. It reads public records and does not send messages to officials. Offer these starting points in ordinary language:
 
@@ -21,8 +21,8 @@ If the user supplies a default state or session, apply it in this conversation a
 
 Read the [shared research rules](../get-legislation/SKILL.md), then use only the relevant workflow: [bill brief](../research-legislation/SKILL.md), [voting records](../voting-record/SKILL.md), or [contacts](../contact-legislator/SKILL.md). A simple bill search uses the shared rules directly. Keep references selective and follow live tool definitions.
 
-Use the discovered guide-public tools for the chosen task. If the user only wants an introduction, no connection probe is necessary. For a requested connection check, use the live list_states definition for a small read-only lookup; report what actually succeeded, not that all workflows or cards are verified.
+Use the discovered guide-public tools for the chosen task. For an introduction, use show_status without a separate connection probe. For a requested connection check, use the live list_states definition for a small read-only lookup; report what actually succeeded, not that all workflows or cards are verified.
 
-If the tools are missing or a call fails, explain the specific limitation and guide the user to enable or reconnect Cicada Guide in their host, then retry the affected read after the connection changes. No service credentials are needed for the anonymous endpoint; never ask for an API key or a personal account password. Do not install another plugin, modify a server, or change account settings as an automatic setup step. Do not loop on an unchanged failure or substitute legislative facts from general knowledge.
+If a call fails and show_status is available, explain the specific limitation in the status card and guide the user to enable or reconnect Cicada Guide in their host, then retry the affected read after the connection changes. No service credentials are needed for the anonymous endpoint; never ask for an API key or a personal account password. Do not install another plugin, modify a server, or change account settings as an automatic setup step. Do not loop on an unchanged failure or substitute legislative facts from general knowledge.
 
 Finish onboarding when the user has a useful sourced result, knows the next input needed, or has a concrete connection-recovery step. Do not claim setup completed merely because the skill was opened. Card rendering remains unverified until actually observed in the host.
