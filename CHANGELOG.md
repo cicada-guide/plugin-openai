@@ -15,6 +15,10 @@ The prepared manifest version is `0.1.0`. It has not been uploaded, submitted, o
 - Package checks, contract snapshots, archive inspection, CI, and submission preparation materials.
 - Architecture overview, contributor guide, documentation index, and three decision records.
 
+### Changed
+
+- Shortened the shared legislative skill and worked sequences. Moved the generated schema snapshot into contributor documentation.
+
 ### Fixed
 
 - Moved Promptfoo setup, grader tests, recordings and starter files to the sibling promptfoo-evals/openai suite; restored the plugin README.

@@ -7,11 +7,15 @@ Status: **prepared but not submission-ready**. Checked November 2, 2026.
 - Added and registered the packaged setup skill for first-use task selection and connection recovery. Skill validation and the ten package tests pass. Host setup launch in fresh/existing conversations remains unverified; earlier benchmark results predate this addition.
 - MCP endpoint updated to `https://openai.cicada.guide/mcp`; live protocol checks passed against this address. Listing URLs remain separate from the connection endpoint.
 - Listing website and privacy policy now use `https://cicada.guide` and `https://cicada.guide/privacy-policy`, as selected by the creator. Both destinations returned HTTP 200 and their content was inspected. This does not establish that the general site's policy covers every connector-specific data practice. The existing portal draft has not been updated with these URL changes.
-- Portable package with five skills (setup and four research workflows), shared procedures, live 17-tool schema reference, anonymous connection, licensing, and 512px icons using the creator-supplied blue and pink logo for both themes. Artwork proportions and transparency are preserved. See the small-size [preview](evidence/icons-48px.png).
+- Portable package with five skills (setup and four research workflows), compact shared procedures, anonymous connection, licensing, and 512px icons using the creator-supplied blue and pink logo for both themes. Artwork proportions and transparency are preserved. See the small-size [preview](evidence/icons-48px.png).
 - Listing, three default prompts, five positive and three negative review cases, release notes, U.S. distribution and no-commerce declaration are stored in `plugin.json`.
 - Live initialization, annotations and all four resources passed. Real bill search/record/dossier/documents/text/rollcalls/breakdown and person/contact/vote/card payload calls passed. A nonexistent bill returned an empty result. These are protocol checks, not executions of packaged skills.
 - Public connector landing/privacy pages, Featurebase help center, and existing terms were inspected. The creator confirmed those terms apply. All four URLs are in the manifest. See [page evidence](evidence/pages.json) and [MCP evidence](evidence/live.json).
 - Live schemas omit analytics arguments. Skills send them only when advertised. No credentials or private account information are packaged.
+
+The installed skill uses live tool definitions. The [17-tool schema snapshot](tool-reference.md) supports contributor contract checks.
+
+The compact guidance passed five directed Codex CLI cases covering exact lookup, a complete dossier brief, roll-call pagination, invalid-offset recovery, and person-vote cursor continuation. The lookup loaded no supporting references, and the brief loaded only its bill procedure. These checks used the public MCP server with explicit skill loading. Native ChatGPT rendering remains unverified.
 
 ## Remaining gates
 

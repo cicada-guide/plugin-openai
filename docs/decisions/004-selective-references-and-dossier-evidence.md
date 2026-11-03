@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Accepted. [ADR-006](006-runtime-reference-packaging.md) supersedes the packaged schema fallback. The dossier evidence decision still applies.
 
 ## Date
 

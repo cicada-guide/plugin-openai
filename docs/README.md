@@ -5,7 +5,7 @@
 - [Repository README](../README.md): purpose, setup, commands, and workflows.
 - [Contributing](../CONTRIBUTING.md): change and validation process.
 - [Architecture](architecture.md): responsibilities, data flow, and verification boundaries.
-- [Tool contract](../skills/get-legislation/references/tool-reference.md): captured descriptions and input schemas; live definitions take precedence.
+- [Tool contract](tool-reference.md): captured descriptions and input schemas; live definitions take precedence.
 
 ## Decisions
 
@@ -14,6 +14,7 @@
 - [ADR-003: Explicit anonymous auth and extension validation](decisions/003-explicit-anonymous-auth-validation.md).
 - [ADR-004: Selective references and equivalent dossier evidence](decisions/004-selective-references-and-dossier-evidence.md).
 - [ADR-005: Plugin onboarding](decisions/005-plugin-onboarding.md).
+- [ADR-006: Separate runtime guidance from the schema snapshot](decisions/006-runtime-reference-packaging.md).
 
 ## Submission preparation
 

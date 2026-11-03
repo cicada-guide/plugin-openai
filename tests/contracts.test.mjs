@@ -18,7 +18,7 @@ test('voting schemas reject the wrong person key and offset pagination', () => {
   assert.equal(valid({ people_id: '6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c', offset: 1 }), false);
 });
 test('tool reference snapshot matches every advertised input schema', () => {
-  const text = readFileSync(new URL('../skills/get-legislation/references/tool-reference.md', import.meta.url), 'utf8');
+  const text = readFileSync(new URL('../docs/tool-reference.md', import.meta.url), 'utf8');
   const sections = text.split(/^## /m).slice(1);
   assert.equal(sections.length, tools.length);
   for (const tool of tools) {
