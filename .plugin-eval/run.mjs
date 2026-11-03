@@ -7,8 +7,15 @@ const evaluatorRoot = 'C:/Users/forre/.codex/plugins/cache/openai-curated-remote
 const { runBenchmark } = await import(pathToFileURL(`${evaluatorRoot}/src/core/benchmark.js`));
 const runtimeCli = process.env.CODEX_APP_RUNTIME_CLI_PATH;
 if (!runtimeCli) throw new Error('CODEX_APP_RUNTIME_CLI_PATH must identify the verified desktop CLI.');
-const name = process.argv.includes('--pilot') ? 'pilot' : 'suite';
-const config = name === 'pilot' ? 'pilot' : 'benchmark';
+const argument = flag => {
+  const index = process.argv.indexOf(flag);
+  if (index < 0) return undefined;
+  if (!process.argv[index + 1] || process.argv[index + 1].startsWith('--')) throw new Error(`Missing value for ${flag}`);
+  return process.argv[index + 1];
+};
+const name = argument('--name') || (process.argv.includes('--pilot') ? 'pilot' : 'suite');
+if (!/^[a-z0-9-]+$/.test(name)) throw new Error('Run name must contain only lowercase letters, digits, and hyphens.');
+const configPath = argument('--config') || `.plugin-eval/${process.argv.includes('--pilot') ? 'pilot' : 'benchmark'}.json`;
 
 async function captureProcess({ command, args, cwd, env, stdoutPath, stderrPath, kind }) {
   const start = Date.now();
@@ -37,7 +44,7 @@ async function captureProcess({ command, args, cwd, env, stdoutPath, stderrPath,
 }
 
 const result = await runBenchmark('.plugin-eval/target/skills/get-legislation', {
-  configPath: `.plugin-eval/${config}.json`,
+  configPath,
   usageOutPath: `.plugin-eval/${name}-usage.jsonl`,
   resultOutPath: `.plugin-eval/${name}-result.json`,
   codexExecutable: runtimeCli,

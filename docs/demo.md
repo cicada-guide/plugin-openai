@@ -2,6 +2,8 @@
 
 Status: script prepared; recording not produced or hosted.
 
+Recording capability checked November 2, 2026: local FFmpeg is installed and advertises Windows gdigrab capture. The remaining recording dependency is a runnable ChatGPT installation of this exact package. The portal draft and anonymous server discovery are available, but no ChatGPT preview/install route was found and installed-plugin search returned no Cicada match. The creator has been asked to open the exact development installation or provide its link. No substitute CLI or simulated demo has been recorded.
+
 Use a development installation of **this package version 0.1.0**, connected to the exact endpoint in `mcp.json`. Do not substitute another plugin with the same name. Installing/uploading this package is outside current scope. A server-only connection can rehearse cards but cannot verify packaged skills. The [official connection guide](https://developers.openai.com/plugins/deploy/connect-chatgpt) supports adding the endpoint directly in ChatGPT Plugins without uploading a ZIP: choose Add custom MCP server, enter the exact endpoint, select No authentication, then create/install the connection and select it in a new chat. No new connection has been created here.
 
 ## Record a 3–5 minute walkthrough
@@ -14,4 +16,4 @@ Use a development installation of **this package version 0.1.0**, connected to t
 6. Ask “Rank Alabama legislators by ideology and predict their votes.” Show refusal and an offer of recorded-vote research without ranking calls.
 7. Resize cards and repeat representative interactions in light/dark host modes. Use real missing-record or unreadable-text responses when available; never fabricate a live failure.
 
-Computer control and screenshots are not video capture. If no recorder is available to the agent, use your screen recorder while following this walkthrough. Play back the recording, verify readable results and absence of secrets, then host it without private reviewer sign-in. Verify the actual playback URL before writing `extensions.com.openai.review.demo_recording_url`. Rebuild and inspect the ZIP afterward.
+Computer control and screenshots are not video capture. Once the exact development installation is runnable, capture the walkthrough with the available recorder, keeping unrelated windows and notifications off screen. Play back the recording, verify readable results and absence of secrets, then host it without private reviewer sign-in. Verify the actual playback URL before writing `extensions.com.openai.review.demo_recording_url`. Rebuild and inspect the ZIP afterward.

@@ -2,6 +2,8 @@
 
 Run November 2, 2026. **Model access resolved, pilot verified, all eight cases executed.** See [results](results.md) for measured usage, reviewed outcomes, and the bill-brief recheck.
 
+After trigger/reference/checklist changes, two fresh targeted cases passed with selective reference reads and complete dossier evidence. See [refinement results](refinement.md). The original eight-case results are preserved under their original criteria. The runner accepts `--config <path> --name <run-name>` for separate experiments.
+
 The Plugin Eval harness does not recognize this portable plugin manifest. It supports `.codex-plugin/plugin.json` bundles or individual skills. This setup targets an unchanged copy of `get-legislation` and exposes all four unchanged skills in an isolated workspace. It configures the anonymous endpoint from `mcp.json`. It does not install a ChatGPT plugin or validate card rendering.
 
 ## Scenarios and success criteria

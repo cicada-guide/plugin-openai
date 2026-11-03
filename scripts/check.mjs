@@ -70,7 +70,9 @@ export function checkFiles(files) {
   for (const c of cases.positive) for (const k of ['tools_triggered', 'expected_behavior']) expect(typeof c[k] === 'string' && c[k].trim(), `Invalid positive case ${k}`);
   expect(openai.review.commerce === false && JSON.stringify(openai.publication.countries) === '["US"]' && openai.publication.release_notes.trim(), 'Wrong commerce/publication metadata');
   const skills = paths.filter(p => /^skills\/[^/]+\/SKILL\.md$/.test(p));
-  expect(skills.length === 4, 'Expected four skills');
+  expect(skills.length === 5, 'Expected five skills');
+  const onboarding = openai.onboardingSkill;
+  expect(typeof onboarding === 'string' && /^\.\/skills\/[^/]+\/SKILL\.md$/.test(onboarding) && !!files[onboarding.slice(2)], 'Onboarding must reference an included skill');
   const names = new Set();
   for (const p of skills) {
     const text = read(p), fm = text.match(/^---\n([\s\S]*?)\n---\n/);

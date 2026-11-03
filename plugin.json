@@ -12,7 +12,7 @@
       "interface": {
         "displayName": "Cicada Guide",
         "shortDescription": "Research state legislation",
-        "longDescription": "Research U.S. state legislation with sourced bill briefs, recorded voting histories, and legislator contact details. Explore bill results, bill workspaces, voting records, and contact cards. Read-only public records; no account or payment required. Coverage and freshness depend on the available records. Does not cover Congress or identify representatives by address, rank legislators, predict votes, or contact officials.",
+        "longDescription": "Research U.S. state legislation with sourced bill briefs, recorded voting histories, and legislator contact details. Explore bill results, bill workspaces, voting records, and contact cards. Read-only public records. Coverage and freshness depend on the available records. Does not cover Congress or identify representatives by address, rank legislators, predict votes, or contact officials.",
         "developerName": "Forrest Satterfield",
         "category": "Education & Research",
         "capabilities": [
@@ -29,8 +29,8 @@
         "composerIconDark": "./assets/logo-dark.png",
         "brandColor": "#171713",
         "brandColorDark": "#C9A227",
-        "websiteURL": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/",
-        "privacyPolicyURL": "https://cicada-guide-mcp-openai.cicada-bot.workers.dev/privacy",
+        "websiteURL": "https://cicada.guide",
+        "privacyPolicyURL": "https://cicada.guide/privacy-policy",
         "supportURL": "https://cicadaguide.featurebase.app/help",
         "termsOfServiceURL": "https://cicada.guide/terms-and-conditions"
       },
@@ -52,8 +52,8 @@
             {
               "description": "Read bill and show workspace. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
               "prompt": "Brief me on Alabama HB591 from the 2026 Regular Session, including text, sponsors, and floor votes.",
-              "tools_triggered": "list_states, list_sessions, search_bills, get_bill_dossier, get_latest_bill_document, get_rollcalls, show_bill",
-              "expected_behavior": "Resolve exact bill; read all text chunks before summarizing, or disclose unavailable text. Preserve roll-call tallies and dated status. Show bill with id, headline and summary grounded in returned evidence."
+              "tools_triggered": "list_states, list_sessions, search_bills, get_bill_dossier, get_latest_bill_document, show_bill",
+              "expected_behavior": "Resolve the exact bill and read every text chunk before summarizing, or disclose unavailable text. Accept dossier roll calls when rollcalls.has_more is false, count and total equal items.length, and no warning indicates failed or incomplete floor-vote retrieval. Otherwise continue get_rollcalls with the same bill_id and returned next_offset; start at offset 0 if completeness metadata is missing/inconsistent or retrieval failed. Follow pagination and retain warnings; disclose any unresolved incomplete coverage even when has_more is false. Preserve each tally and dated status. Show the bill with id, headline and summary grounded in returned evidence. A complete dossier does not require a duplicate get_rollcalls call."
             },
             {
               "description": "Recorded voting history. Setup: fresh chat with Cicada Guide enabled; public live records, no credentials.",
@@ -91,11 +91,12 @@
         }
       },
       "publication": {
-        "release_notes": "Initial ChatGPT package: four state legislative research skills, anonymous OpenAI MCP connection, and light/dark icon entries.",
+        "release_notes": "Initial ChatGPT package: guided onboarding, four state legislative research workflows, an anonymous MCP connection, and light/dark logo entries.",
         "countries": [
           "US"
         ]
-      }
+      },
+      "onboardingSkill": "./skills/setup/SKILL.md"
     }
   }
 }

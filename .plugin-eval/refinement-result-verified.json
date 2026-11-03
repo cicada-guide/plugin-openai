@@ -1,0 +1,678 @@
+{
+  "note": "Raw-event extraction; tool arguments checked against the recorded live schema. Semantic review and ChatGPT rendering remain separate. Usage comes only from turn.completed.",
+  "model": "gpt-6.1-sol",
+  "codexVersion": "codex-cli 0.166.0-alpha.5.1",
+  "rows": [
+    {
+      "id": "case-1",
+      "title": "Search state bills",
+      "processStatus": "completed",
+      "durationSeconds": 43.72,
+      "usage": {
+        "input_tokens": 230190,
+        "cached_input_tokens": 203008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 930,
+        "reasoning_output_tokens": 24
+      },
+      "toolCount": 5,
+      "tools": [
+        "list_states",
+        "list_sessions",
+        "search_bills",
+        "get_latest_bill_document",
+        "show_bill"
+      ],
+      "missingTools": [],
+      "argumentErrors": [],
+      "mcpErrors": [],
+      "noToolBoundarySatisfied": null,
+      "commandCount": 1,
+      "changedFiles": [
+        "answer.md"
+      ],
+      "answer": "Saved to [answer.md](C:/Users/forre/AppData/Local/Temp/plugin-eval-case-1-XaP4Xn/workspace/answer.md).\n\nFound **Alabama HB591 — 2026 Regular Session**.\n\n- **Title:** Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026.\n- **Recorded status:** Passed; record dated April 13, 2026.\n- **Summary:** Provides up to $203,404,327 in federal funds to the Alabama Department of Economic and Community Affairs for rural health initiatives and creates a joint legislative oversight committee.\n- **Official text:** [Enrolled HB591 PDF, dated April 9, 2026](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf).\n\nSource: Cicada Guide’s exact bill search and latest-document tools. The recorded status and enrolled document do not by themselves establish governor approval or enactment.",
+      "rawEventLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T16-54-15\\01-case-1\\codex.stdout.jsonl",
+      "calls": [
+        {
+          "tool": "list_states",
+          "arguments": {
+            "name": "Alabama"
+          },
+          "data": {
+            "total": 1,
+            "count": 1,
+            "offset": 0,
+            "has_more": false,
+            "items": [
+              {
+                "id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "name": "Alabama",
+                "geoidfq": "01"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "list_sessions",
+          "arguments": {
+            "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+            "name": "2026"
+          },
+          "data": {
+            "total": 2,
+            "count": 2,
+            "offset": 0,
+            "has_more": false,
+            "items": [
+              {
+                "id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+                "name": "2026 Regular Session",
+                "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "convenes": null,
+                "adjourns": null
+              },
+              {
+                "id": "f94a3ee8-fcfe-45a5-9c23-eddfaa0b6009",
+                "name": "2026 1st Special Session",
+                "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "convenes": null,
+                "adjourns": null
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_bills",
+          "arguments": {
+            "bill": "HB591",
+            "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+            "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c"
+          },
+          "data": {
+            "count": 1,
+            "offset": 0,
+            "has_more": false,
+            "active_filters": {
+              "bill": "HB591",
+              "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+              "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd"
+            },
+            "items": [
+              {
+                "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                "bill": "HB591",
+                "title": "Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026",
+                "status": "Passed",
+                "type": "Bill",
+                "date": "2026-04-13",
+                "subjects": [
+                  "Appropriations"
+                ],
+                "headline": null,
+                "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+                "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "sponsors": [
+                  "6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c",
+                  "21863457-27de-4456-98d5-7edf7fc13cf9"
+                ],
+                "count_documents": 0,
+                "documents": [
+                  {
+                    "id": "a5c5470c-d096-44d8-a1e0-f39c76e7ac17",
+                    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-int.pdf",
+                    "date": "2026-03-10",
+                    "type": "Bill",
+                    "format": "PDF",
+                    "status": "Introduced"
+                  },
+                  {
+                    "id": "910ec108-1a88-405f-8d52-1850889498ef",
+                    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-eng.pdf",
+                    "date": null,
+                    "type": "Bill",
+                    "format": "PDF",
+                    "status": "Engrossed"
+                  },
+                  {
+                    "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+                    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+                    "date": "2026-04-09",
+                    "type": "Bill",
+                    "format": "PDF",
+                    "status": "Enrolled"
+                  }
+                ],
+                "_display": {
+                  "divisionName": "Alabama",
+                  "sessionName": "2026 Regular Session"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "tool": "get_latest_bill_document",
+          "arguments": {
+            "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f"
+          },
+          "data": {
+            "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "total_documents": 3,
+            "text_source": "raw_text",
+            "text": "\"HB591 ENROLLED\r\nPage 0\r\nHB591\r\n3PUH3EZ-3\r\nBy Representatives Reynolds, Whitt, Rigsby, Crawford, Clouse,\r\nCollins, Lamb, Shirey, Simpson, Givens, Holk-Jones, Ross,\r\nWarren, Drummond, Brown, Daniels, Travis, England, McCampbell,\r\nLee, Lovvorn, Barnes, Nelson, Kiel, Moore (P), Underwood,\r\nBedsole, Harrison, Fidler, Hall, Kirkland, Brinyark, Myrex,\r\nColvin, Wadsworth, Rehm, Smith, Whorton, Sorrells, Allbright,\r\nHulsey, Stringer, Robertson\r\nRFD: Ways and Means General Fund\r\nFirst Read: 10-Mar-26\r\n1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n10\r\n11HB591 Enrolled\r\nPage 1\r\nFirst Read: 10-Mar-26\r\nEnrolled, An Act,\r\nTo make supplemental appropriations from the Rural\r\nHealth Transformation Program to the Alabama Department of\r\nEconomic and Community Affairs for the fiscal year ending\r\nSeptember 30, 2026; and to create the Joint Legislative\r\nOversight Committee on Rural Health Transformation Program\r\nFunds.\r\nBE IT ENACTED BY THE LEGISLATURE OF ALABAMA:\r\nSection 1. In addition to all other appropriations\r\nheretofore or hereafter made, there is hereby appropriated a\r\ntotal of up to $203,404,327 in federal funds from the One Big\r\nBeautiful Bill Act of 2025 (P.L. 119-21) for the Rural Health\r\nTransformation Program to the Alabama Department of Economic\r\nand Community Affairs (\"ADECA\") for the fiscal year ending\r\nSeptember 30, 2026 for the following:\r\n(1) To the Collaborative EHR, IT, and Cybersecurity\r\nInitiative, up to $31,425,971.\r\n(2) To the Rural Health Initiative, up to $55,936,190.\r\n(3) To the Maternal and Fetal Health Initiative, up to\r\n$6,102,130. \r\n(4) To the Rural Workforce Initiative, up to\r\n$57,919,382.\r\n(5) To the Cancer Digital Regionalization Initiative,\r\nup to $8,136,173.\r\n(6) To the Simulation Training Initiative, up to\r\n$1,017,021.\r\n(7) To the Statewide EMS Trauma and Stroke Initiative,\r\n1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n10\r\n11\r\n12\r\n13\r\n14\r\n15\r\n16\r\n17\r\n18\r\n19\r\n20\r\n21\r\n22\r\n23\r\n24\r\n25\r\n26\r\n27\r\n28HB591 Enrolled\r\nPage 2\r\n(7) To the Statewide EMS Trauma and Stroke Initiative,\r\nup to $4,068,085. \r\n(8) To the EMS Treat-In-Place Initiative, up to\r\n$5,085,108.\r\n(9) To the Mental Health Initiative, up to $7,271,705.\r\n(10) To the Rural Health Practice Initiative, up to\r\n$6,102,130.\r\n(11) Up to $20,340,432 of funds may be used to\r\nreimburse costs for the administration, auditing, and\r\nreporting requirements of the Rural Health Transformation\r\nProgram funds. \r\nSection 2. All funds appropriated herein and not\r\nexpended in the current fiscal year shall not revert but be\r\ncarried forward for the purpose appropriated. \r\nSection 3. (a) Any amount of the funds appropriated in\r\nthis act remaining unexpended on September 30, 2026, shall be\r\nreappropriated for the same purposes for the fiscal year\r\nbeginning October 1, 2026.\r\n(b) In the event that any of the appropriations to any\r\nof the initiatives listed above needs to be adjusted or\r\nexceeded for the utilization of available funds, the Director\r\nof ADECA shall obtain written concurrence of a majority of the\r\nFinance Director, the Chair of the House Ways and Means\r\nGeneral Fund Committee, and the Chair of the Senate Finance\r\nand Taxation General Fund Committee of the Legislature for\r\nsuch reallocation prior to seeking the approval referenced in\r\nSection (c) below. \r\n(c) Following receipt of the above concurrence, the\r\nDirector of ADECA shall seek approval from the Centers for\r\n29\r\n30\r\n31\r\n32\r\n33\r\n34\r\n35\r\n36\r\n37\r\n38\r\n39\r\n40\r\n41\r\n42\r\n43\r\n44\r\n45\r\n46\r\n47\r\n48\r\n49\r\n50\r\n51\r\n52\r\n53\r\n54\r\n55\r\n56HB591 Enrolled\r\nPage 3\r\nDirector of ADECA shall seek approval from the Centers for\r\nMedicare and Medicaid Services (\"CMS\") for the above\r\nreallocation. In the event such approval is modified or\r\nwithheld by CMS, ADECA shall continue to administer the\r\nappropriation in accordance with CMS requirements. \r\nSection 4. Nothing in this act is intended nor shall be\r\nconstrued to require any expenditure of federal funds in\r\nviolation of any federal law, regulation, rule, policy, or\r\nprocedure, or of any term or condition applicable to the\r\nadministration of federal funds by ADECA in connection with\r\nthe Rural Health Transformation Program, nor shall anything\r\nherein be construed to prohibit the expenditure of federal\r\nfunds by ADECA in accordance with the purposes for which and\r\nthe terms and conditions upon which such funds were made\r\navailable.\r\nSection 5. (a) There is hereby created a Joint\r\nLegislative Oversight Committee on Rural Health Transformation\r\nProgram Funds, hereinafter referred to as the committee. The \r\ncommittee shall consist of the Chair of the House Ways and \r\nMeans - General Fund Committee; the Chair of the Senate\r\nFinance and Taxation – General Fund Committee; three members\r\nof the House Ways and Means - General Fund Committee appointed\r\nby the chair of the committee, including the ranking minority\r\nmember of the committee, or his or her designee; and three\r\nmembers of the Senate Finance and Taxation - General Fund\r\nCommittee appointed by the chair of the committee, including\r\nthe ranking minority member of the committee, or his or her\r\ndesignee; the Minority Leader of the House of Representatives;\r\nthe Minority Leader of the Senate; the Speaker of the House of\r\n57\r\n58\r\n59\r\n60\r\n61\r\n62\r\n63\r\n64\r\n65\r\n66\r\n67\r\n68\r\n69\r\n70\r\n71\r\n72\r\n73\r\n74\r\n75\r\n76\r\n77\r\n78\r\n79\r\n80\r\n81\r\n82\r\n83\r\n84HB591 Enrolled\r\nPage 4\r\nthe Minority Leader of the Senate; the Speaker of the House of\r\nRepresentatives, or his or her other designee; the President\r\nPro Tempore of the Senate, or his or her designee; a member of\r\nthe House of Representatives appointed by the Speaker; and a\r\nmember of the Senate, appointed by the President Pro Tempore\r\nof the Senate. The Chair of the House Ways and Means - General\r\nFund Committee and the Chair of the Senate Finance and\r\nTaxation - General Fund Committee shall be co-chairs of the\r\noversight committee. The committee shall hold its\r\norganizational meeting within 30 days following the effective\r\ndate of this act and shall meet at the call of the co-chairs\r\nthereafter. \r\n(b) The co-chairs of the oversight committee, on behalf\r\nof the oversight committee, shall have authority to request\r\nand receive reports, supplemental information, or data from\r\nthe Department of Economic and Community Affairs or the\r\nadministering entity related to the implementation of the\r\nprograms funded in this act and any other act appropriating\r\nRural Health Transformation Program Funds and to conduct\r\nhearings and receive testimony therein related to the\r\nimplementation of the aforesaid programs.\r\nSection 6. This act shall become effective immediately\r\nupon its passage and approval by the Governor, or upon its\r\notherwise becoming law.\r\n85\r\n86\r\n87\r\n88\r\n89\r\n90\r\n91\r\n92\r\n93\r\n94\r\n95\r\n96\r\n97\r\n98\r\n99\r\n100\r\n101\r\n102\r\n103\r\n104\r\n105\r\n106\r\n107HB591 Enrolled\r\nPage 5\r\notherwise becoming law.\r\n________________________________________________\r\nSpeaker of the House of Representatives\r\n________________________________________________\r\nPresident and Presiding Officer of the Senate\r\nHouse of Representatives\r\nI hereby certify that the within Act originated in and\r\nwas passed by the House 01-Apr-26.\r\nJohn Treadwell\r\nClerk\r\nSenate 08-Apr-26 Passed\r\n108\r\n109\r\n110\r\n111\r\n112\r\n113\r\n114\r\n115\r\n116\r\n117\r\n118\r\n119\r\n120\r\n121\r\n122\r\n123\r\n124\r\n125\r\n126\r\n127\r\n128\r\n129\r\n130\r\n131\r\n132\r\n133\r\n134\r\n135\r\n136\r\n137\r\n138\r\n139\r\n140\"",
+            "text_offset": 0,
+            "text_total_chars": 7298,
+            "next_text_offset": null,
+            "item": {
+              "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+              "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+              "status": "Enrolled",
+              "date": "2026-04-09",
+              "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+              "type": "Bill",
+              "format": "PDF",
+              "summarization": null
+            }
+          }
+        },
+        {
+          "tool": "show_bill",
+          "arguments": {
+            "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "headline": "Funds Alabama’s Rural Health Transformation Program",
+            "summary": "Provides up to $203,404,327 in federal supplemental appropriations to ADECA for fiscal year 2026 and creates a joint legislative oversight committee. Recorded status: Passed, dated April 13, 2026. The enrolled document is dated April 9, 2026; these records do not establish governor approval."
+          },
+          "data": {
+            "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "bill": "HB591",
+            "title": "Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026",
+            "status": "Passed",
+            "type": "Bill",
+            "date": "2026-04-13",
+            "subjects": [
+              "Appropriations"
+            ],
+            "headline": null,
+            "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+            "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+            "sponsors": [
+              "6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c",
+              "21863457-27de-4456-98d5-7edf7fc13cf9"
+            ],
+            "count_documents": 0,
+            "documents": [
+              {
+                "id": "a5c5470c-d096-44d8-a1e0-f39c76e7ac17",
+                "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-int.pdf",
+                "date": "2026-03-10",
+                "type": "Bill",
+                "format": "PDF",
+                "status": "Introduced"
+              },
+              {
+                "id": "910ec108-1a88-405f-8d52-1850889498ef",
+                "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-eng.pdf",
+                "date": null,
+                "type": "Bill",
+                "format": "PDF",
+                "status": "Engrossed"
+              },
+              {
+                "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+                "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+                "date": "2026-04-09",
+                "type": "Bill",
+                "format": "PDF",
+                "status": "Enrolled"
+              }
+            ],
+            "_display": {
+              "divisionName": "Alabama",
+              "sessionName": "2026 Regular Session",
+              "aiHeadline": "Funds Alabama’s Rural Health Transformation Program",
+              "aiSummary": "Provides up to $203,404,327 in federal supplemental appropriations to ADECA for fiscal year 2026 and creates a joint legislative oversight committee. Recorded status: Passed, dated April 13, 2026. The enrolled document is dated April 9, 2026; these records do not establish governor approval."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "case-2",
+      "title": "Read bill and show workspace",
+      "processStatus": "completed",
+      "durationSeconds": 72.17,
+      "usage": {
+        "input_tokens": 289840,
+        "cached_input_tokens": 256768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2378,
+        "reasoning_output_tokens": 15
+      },
+      "toolCount": 7,
+      "tools": [
+        "list_states",
+        "list_sessions",
+        "search_bills",
+        "get_bill_dossier",
+        "get_latest_bill_document",
+        "search_people",
+        "show_bill"
+      ],
+      "missingTools": [],
+      "argumentErrors": [],
+      "mcpErrors": [],
+      "noToolBoundarySatisfied": null,
+      "commandCount": 2,
+      "changedFiles": [
+        "answer.md"
+      ],
+      "answer": "Saved the brief to [answer.md](C:/Users/forre/AppData/Local/Temp/plugin-eval-case-2-o3K4Em/workspace/answer.md).\n\nHB591’s enrolled text provides up to **$203.4 million** for rural health initiatives and creates legislative oversight. The brief includes allocations, sponsors, all five recorded floor-vote entries, document links, and evidence limitations—including an unresolved sponsor ID and no confirmation of enactment.",
+      "rawEventLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T16-54-15\\02-case-2\\codex.stdout.jsonl",
+      "calls": [
+        {
+          "tool": "list_states",
+          "arguments": {
+            "name": "Alabama",
+            "response_format": "json"
+          },
+          "data": {
+            "total": 1,
+            "count": 1,
+            "offset": 0,
+            "has_more": false,
+            "items": [
+              {
+                "id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "name": "Alabama",
+                "geoidfq": "01"
+              }
+            ]
+          }
+        },
+        {
+          "tool": "list_sessions",
+          "arguments": {
+            "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+            "name": "2026",
+            "response_format": "json"
+          },
+          "data": {
+            "total": 2,
+            "count": 2,
+            "offset": 0,
+            "has_more": false,
+            "items": [
+              {
+                "id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+                "name": "2026 Regular Session",
+                "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "convenes": null,
+                "adjourns": null
+              },
+              {
+                "id": "f94a3ee8-fcfe-45a5-9c23-eddfaa0b6009",
+                "name": "2026 1st Special Session",
+                "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "convenes": null,
+                "adjourns": null
+              }
+            ]
+          }
+        },
+        {
+          "tool": "search_bills",
+          "arguments": {
+            "bill": "HB591",
+            "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+            "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+            "response_format": "json"
+          },
+          "data": {
+            "count": 1,
+            "offset": 0,
+            "has_more": false,
+            "active_filters": {
+              "bill": "HB591",
+              "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+              "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd"
+            },
+            "items": [
+              {
+                "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                "bill": "HB591",
+                "title": "Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026",
+                "status": "Passed",
+                "type": "Bill",
+                "date": "2026-04-13",
+                "subjects": [
+                  "Appropriations"
+                ],
+                "headline": null,
+                "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+                "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+                "sponsors": [
+                  "6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c",
+                  "21863457-27de-4456-98d5-7edf7fc13cf9"
+                ],
+                "count_documents": 0,
+                "documents": [
+                  {
+                    "id": "a5c5470c-d096-44d8-a1e0-f39c76e7ac17",
+                    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-int.pdf",
+                    "date": "2026-03-10",
+                    "type": "Bill",
+                    "format": "PDF",
+                    "status": "Introduced"
+                  },
+                  {
+                    "id": "910ec108-1a88-405f-8d52-1850889498ef",
+                    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-eng.pdf",
+                    "date": null,
+                    "type": "Bill",
+                    "format": "PDF",
+                    "status": "Engrossed"
+                  },
+                  {
+                    "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+                    "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+                    "date": "2026-04-09",
+                    "type": "Bill",
+                    "format": "PDF",
+                    "status": "Enrolled"
+                  }
+                ],
+                "_display": {
+                  "divisionName": "Alabama",
+                  "sessionName": "2026 Regular Session"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "tool": "get_bill_dossier",
+          "arguments": {
+            "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "response_format": "json"
+          },
+          "data": {
+            "bill": {
+              "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+              "bill": "HB591",
+              "title": "Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026",
+              "status": "Passed",
+              "type": "Bill",
+              "date": "2026-04-13",
+              "subjects": [
+                "Appropriations"
+              ],
+              "headline": null,
+              "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+              "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+              "sponsors": [
+                "6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c",
+                "21863457-27de-4456-98d5-7edf7fc13cf9"
+              ],
+              "count_documents": 0
+            },
+            "division": {
+              "id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+              "name": "Alabama",
+              "geoidfq": "01",
+              "type": "State"
+            },
+            "session": {
+              "id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+              "name": "2026 Regular Session",
+              "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+              "convenes": null,
+              "adjourns": null
+            },
+            "sponsors": [
+              {
+                "id": "6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c",
+                "full_name": "Rex Reynolds",
+                "first_name": "Rex",
+                "middle_name": null,
+                "last_name": "Reynolds",
+                "suffix": null,
+                "nickname": null,
+                "party": "R"
+              }
+            ],
+            "documents": {
+              "total": 3,
+              "count": 3,
+              "items": [
+                {
+                  "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "status": "Enrolled",
+                  "date": "2026-04-09",
+                  "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+                  "type": "Bill",
+                  "format": "PDF",
+                  "summarization": null
+                },
+                {
+                  "id": "a5c5470c-d096-44d8-a1e0-f39c76e7ac17",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "status": "Introduced",
+                  "date": "2026-03-10",
+                  "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-int.pdf",
+                  "type": "Bill",
+                  "format": "PDF",
+                  "summarization": null
+                },
+                {
+                  "id": "910ec108-1a88-405f-8d52-1850889498ef",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "status": "Engrossed",
+                  "date": null,
+                  "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-eng.pdf",
+                  "type": "Bill",
+                  "format": "PDF",
+                  "summarization": null
+                }
+              ]
+            },
+            "rollcalls": {
+              "total": 5,
+              "count": 5,
+              "offset": 0,
+              "has_more": false,
+              "items": [
+                {
+                  "id": "6bff9a36-81b4-49ad-b6e2-7cd76dec8e10",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "date": "2026-04-08",
+                  "description": "Motion to Read a Third Time and Pass - Roll Call 1282",
+                  "counts": {
+                    "yea": 30,
+                    "nay": 0,
+                    "absent": 5,
+                    "nv": 0,
+                    "total": 35
+                  },
+                  "linked_via": "bill"
+                },
+                {
+                  "id": "92e84d78-6cbb-4677-912d-4e67da326012",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "date": "2026-04-01",
+                  "description": "Motion to Read a Third Time and Pass as Amended - Roll Call 1127",
+                  "counts": {
+                    "yea": 104,
+                    "nay": 0,
+                    "absent": 1,
+                    "nv": 0,
+                    "total": 105
+                  },
+                  "linked_via": "bill"
+                },
+                {
+                  "id": "5ce684fc-e1a4-401a-936b-b5973ef2cead",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "date": "2026-04-01",
+                  "description": "Third Reading in House of Origin",
+                  "counts": {
+                    "yea": 104,
+                    "nay": 0,
+                    "absent": 1,
+                    "nv": 0,
+                    "total": 105
+                  },
+                  "linked_via": "bill"
+                },
+                {
+                  "id": "2079b4c1-3929-47a5-a83f-a28330d7b53c",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "date": "2026-04-01",
+                  "description": "HBIR: Passed by House of Origin",
+                  "counts": {
+                    "yea": 104,
+                    "nay": 0,
+                    "absent": 1,
+                    "nv": 0,
+                    "total": 105
+                  },
+                  "linked_via": "bill"
+                },
+                {
+                  "id": "0b22141d-b9a4-4bf0-ac79-ed1f1cce6c02",
+                  "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+                  "date": "2026-04-01",
+                  "description": "Motion to Adopt - Roll Call 1126 5VQZH63-1",
+                  "counts": {
+                    "yea": 104,
+                    "nay": 0,
+                    "absent": 1,
+                    "nv": 0,
+                    "total": 105
+                  },
+                  "linked_via": "bill"
+                }
+              ]
+            },
+            "governor_action": {
+              "state": "Alabama",
+              "during_session_days": 6,
+              "during_session_default": "law",
+              "after_session_days": 10,
+              "after_session_default": "pocket_veto",
+              "effective_date": "In bill text",
+              "summary": "In Alabama, the governor has 6 days to act on a bill during session, after which the bill becomes law without a signature. If the legislature has adjourned, the governor has 10 days, after which the bill is pocket vetoed. The bill text sets when it takes effect.",
+              "note": "A general rule: when each deadline starts (presentment, delivery or adjournment), excluded weekends and holidays, emergency clauses and dates in the bill text can change it."
+            },
+            "warnings": [],
+            "partial": false
+          }
+        },
+        {
+          "tool": "get_latest_bill_document",
+          "arguments": {
+            "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "response_format": "json"
+          },
+          "data": {
+            "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "total_documents": 3,
+            "text_source": "raw_text",
+            "text": "\"HB591 ENROLLED\r\nPage 0\r\nHB591\r\n3PUH3EZ-3\r\nBy Representatives Reynolds, Whitt, Rigsby, Crawford, Clouse,\r\nCollins, Lamb, Shirey, Simpson, Givens, Holk-Jones, Ross,\r\nWarren, Drummond, Brown, Daniels, Travis, England, McCampbell,\r\nLee, Lovvorn, Barnes, Nelson, Kiel, Moore (P), Underwood,\r\nBedsole, Harrison, Fidler, Hall, Kirkland, Brinyark, Myrex,\r\nColvin, Wadsworth, Rehm, Smith, Whorton, Sorrells, Allbright,\r\nHulsey, Stringer, Robertson\r\nRFD: Ways and Means General Fund\r\nFirst Read: 10-Mar-26\r\n1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n10\r\n11HB591 Enrolled\r\nPage 1\r\nFirst Read: 10-Mar-26\r\nEnrolled, An Act,\r\nTo make supplemental appropriations from the Rural\r\nHealth Transformation Program to the Alabama Department of\r\nEconomic and Community Affairs for the fiscal year ending\r\nSeptember 30, 2026; and to create the Joint Legislative\r\nOversight Committee on Rural Health Transformation Program\r\nFunds.\r\nBE IT ENACTED BY THE LEGISLATURE OF ALABAMA:\r\nSection 1. In addition to all other appropriations\r\nheretofore or hereafter made, there is hereby appropriated a\r\ntotal of up to $203,404,327 in federal funds from the One Big\r\nBeautiful Bill Act of 2025 (P.L. 119-21) for the Rural Health\r\nTransformation Program to the Alabama Department of Economic\r\nand Community Affairs (\"ADECA\") for the fiscal year ending\r\nSeptember 30, 2026 for the following:\r\n(1) To the Collaborative EHR, IT, and Cybersecurity\r\nInitiative, up to $31,425,971.\r\n(2) To the Rural Health Initiative, up to $55,936,190.\r\n(3) To the Maternal and Fetal Health Initiative, up to\r\n$6,102,130. \r\n(4) To the Rural Workforce Initiative, up to\r\n$57,919,382.\r\n(5) To the Cancer Digital Regionalization Initiative,\r\nup to $8,136,173.\r\n(6) To the Simulation Training Initiative, up to\r\n$1,017,021.\r\n(7) To the Statewide EMS Trauma and Stroke Initiative,\r\n1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n10\r\n11\r\n12\r\n13\r\n14\r\n15\r\n16\r\n17\r\n18\r\n19\r\n20\r\n21\r\n22\r\n23\r\n24\r\n25\r\n26\r\n27\r\n28HB591 Enrolled\r\nPage 2\r\n(7) To the Statewide EMS Trauma and Stroke Initiative,\r\nup to $4,068,085. \r\n(8) To the EMS Treat-In-Place Initiative, up to\r\n$5,085,108.\r\n(9) To the Mental Health Initiative, up to $7,271,705.\r\n(10) To the Rural Health Practice Initiative, up to\r\n$6,102,130.\r\n(11) Up to $20,340,432 of funds may be used to\r\nreimburse costs for the administration, auditing, and\r\nreporting requirements of the Rural Health Transformation\r\nProgram funds. \r\nSection 2. All funds appropriated herein and not\r\nexpended in the current fiscal year shall not revert but be\r\ncarried forward for the purpose appropriated. \r\nSection 3. (a) Any amount of the funds appropriated in\r\nthis act remaining unexpended on September 30, 2026, shall be\r\nreappropriated for the same purposes for the fiscal year\r\nbeginning October 1, 2026.\r\n(b) In the event that any of the appropriations to any\r\nof the initiatives listed above needs to be adjusted or\r\nexceeded for the utilization of available funds, the Director\r\nof ADECA shall obtain written concurrence of a majority of the\r\nFinance Director, the Chair of the House Ways and Means\r\nGeneral Fund Committee, and the Chair of the Senate Finance\r\nand Taxation General Fund Committee of the Legislature for\r\nsuch reallocation prior to seeking the approval referenced in\r\nSection (c) below. \r\n(c) Following receipt of the above concurrence, the\r\nDirector of ADECA shall seek approval from the Centers for\r\n29\r\n30\r\n31\r\n32\r\n33\r\n34\r\n35\r\n36\r\n37\r\n38\r\n39\r\n40\r\n41\r\n42\r\n43\r\n44\r\n45\r\n46\r\n47\r\n48\r\n49\r\n50\r\n51\r\n52\r\n53\r\n54\r\n55\r\n56HB591 Enrolled\r\nPage 3\r\nDirector of ADECA shall seek approval from the Centers for\r\nMedicare and Medicaid Services (\"CMS\") for the above\r\nreallocation. In the event such approval is modified or\r\nwithheld by CMS, ADECA shall continue to administer the\r\nappropriation in accordance with CMS requirements. \r\nSection 4. Nothing in this act is intended nor shall be\r\nconstrued to require any expenditure of federal funds in\r\nviolation of any federal law, regulation, rule, policy, or\r\nprocedure, or of any term or condition applicable to the\r\nadministration of federal funds by ADECA in connection with\r\nthe Rural Health Transformation Program, nor shall anything\r\nherein be construed to prohibit the expenditure of federal\r\nfunds by ADECA in accordance with the purposes for which and\r\nthe terms and conditions upon which such funds were made\r\navailable.\r\nSection 5. (a) There is hereby created a Joint\r\nLegislative Oversight Committee on Rural Health Transformation\r\nProgram Funds, hereinafter referred to as the committee. The \r\ncommittee shall consist of the Chair of the House Ways and \r\nMeans - General Fund Committee; the Chair of the Senate\r\nFinance and Taxation – General Fund Committee; three members\r\nof the House Ways and Means - General Fund Committee appointed\r\nby the chair of the committee, including the ranking minority\r\nmember of the committee, or his or her designee; and three\r\nmembers of the Senate Finance and Taxation - General Fund\r\nCommittee appointed by the chair of the committee, including\r\nthe ranking minority member of the committee, or his or her\r\ndesignee; the Minority Leader of the House of Representatives;\r\nthe Minority Leader of the Senate; the Speaker of the House of\r\n57\r\n58\r\n59\r\n60\r\n61\r\n62\r\n63\r\n64\r\n65\r\n66\r\n67\r\n68\r\n69\r\n70\r\n71\r\n72\r\n73\r\n74\r\n75\r\n76\r\n77\r\n78\r\n79\r\n80\r\n81\r\n82\r\n83\r\n84HB591 Enrolled\r\nPage 4\r\nthe Minority Leader of the Senate; the Speaker of the House of\r\nRepresentatives, or his or her other designee; the President\r\nPro Tempore of the Senate, or his or her designee; a member of\r\nthe House of Representatives appointed by the Speaker; and a\r\nmember of the Senate, appointed by the President Pro Tempore\r\nof the Senate. The Chair of the House Ways and Means - General\r\nFund Committee and the Chair of the Senate Finance and\r\nTaxation - General Fund Committee shall be co-chairs of the\r\noversight committee. The committee shall hold its\r\norganizational meeting within 30 days following the effective\r\ndate of this act and shall meet at the call of the co-chairs\r\nthereafter. \r\n(b) The co-chairs of the oversight committee, on behalf\r\nof the oversight committee, shall have authority to request\r\nand receive reports, supplemental information, or data from\r\nthe Department of Economic and Community Affairs or the\r\nadministering entity related to the implementation of the\r\nprograms funded in this act and any other act appropriating\r\nRural Health Transformation Program Funds and to conduct\r\nhearings and receive testimony therein related to the\r\nimplementation of the aforesaid programs.\r\nSection 6. This act shall become effective immediately\r\nupon its passage and approval by the Governor, or upon its\r\notherwise becoming law.\r\n85\r\n86\r\n87\r\n88\r\n89\r\n90\r\n91\r\n92\r\n93\r\n94\r\n95\r\n96\r\n97\r\n98\r\n99\r\n100\r\n101\r\n102\r\n103\r\n104\r\n105\r\n106\r\n107HB591 Enrolled\r\nPage 5\r\notherwise becoming law.\r\n________________________________________________\r\nSpeaker of the House of Representatives\r\n________________________________________________\r\nPresident and Presiding Officer of the Senate\r\nHouse of Representatives\r\nI hereby certify that the within Act originated in and\r\nwas passed by the House 01-Apr-26.\r\nJohn Treadwell\r\nClerk\r\nSenate 08-Apr-26 Passed\r\n108\r\n109\r\n110\r\n111\r\n112\r\n113\r\n114\r\n115\r\n116\r\n117\r\n118\r\n119\r\n120\r\n121\r\n122\r\n123\r\n124\r\n125\r\n126\r\n127\r\n128\r\n129\r\n130\r\n131\r\n132\r\n133\r\n134\r\n135\r\n136\r\n137\r\n138\r\n139\r\n140\"",
+            "text_offset": 0,
+            "text_total_chars": 7298,
+            "next_text_offset": null,
+            "item": {
+              "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+              "bill_id": "bb4693da-72c7-476c-8e11-81709813c76f",
+              "status": "Enrolled",
+              "date": "2026-04-09",
+              "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+              "type": "Bill",
+              "format": "PDF",
+              "summarization": null
+            }
+          }
+        },
+        {
+          "tool": "search_people",
+          "arguments": {
+            "ids": [
+              "21863457-27de-4456-98d5-7edf7fc13cf9"
+            ],
+            "response_format": "json"
+          },
+          "data": {
+            "count": 0,
+            "offset": 0,
+            "has_more": false,
+            "unresolved_ids": [
+              "21863457-27de-4456-98d5-7edf7fc13cf9"
+            ],
+            "items": []
+          }
+        },
+        {
+          "tool": "show_bill",
+          "arguments": {
+            "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "headline": "Provides up to $203.4 million for rural health initiatives",
+            "summary": "The enrolled text appropriates up to $203,404,327 in federal Rural Health Transformation Program funds to ADECA for fiscal year 2026, carries unspent funds forward, and creates legislative oversight. The recorded status is Passed, dated April 13, 2026; the retrieved evidence does not establish gubernatorial approval or enactment."
+          },
+          "data": {
+            "id": "bb4693da-72c7-476c-8e11-81709813c76f",
+            "bill": "HB591",
+            "title": "Rural Health Transformation Program supplemental appropriations for the fiscal year ending September 30, 2026",
+            "status": "Passed",
+            "type": "Bill",
+            "date": "2026-04-13",
+            "subjects": [
+              "Appropriations"
+            ],
+            "headline": null,
+            "session_id": "d72fd4b9-0c52-4e09-8b2a-0d6135f7138c",
+            "division_id": "5cbbd708-9463-4671-966d-397db4e1a9fd",
+            "sponsors": [
+              "6b9e24d2-9f2b-457f-8a81-e5ff1b31cd3c",
+              "21863457-27de-4456-98d5-7edf7fc13cf9"
+            ],
+            "count_documents": 0,
+            "documents": [
+              {
+                "id": "a5c5470c-d096-44d8-a1e0-f39c76e7ac17",
+                "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-int.pdf",
+                "date": "2026-03-10",
+                "type": "Bill",
+                "format": "PDF",
+                "status": "Introduced"
+              },
+              {
+                "id": "910ec108-1a88-405f-8d52-1850889498ef",
+                "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-eng.pdf",
+                "date": null,
+                "type": "Bill",
+                "format": "PDF",
+                "status": "Engrossed"
+              },
+              {
+                "id": "4918b98e-6cfa-4095-986e-51928487edf5",
+                "url": "https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf",
+                "date": "2026-04-09",
+                "type": "Bill",
+                "format": "PDF",
+                "status": "Enrolled"
+              }
+            ],
+            "_display": {
+              "divisionName": "Alabama",
+              "sessionName": "2026 Regular Session",
+              "aiHeadline": "Provides up to $203.4 million for rural health initiatives",
+              "aiSummary": "The enrolled text appropriates up to $203,404,327 in federal Rural Health Transformation Program funds to ADECA for fiscal year 2026, carries unspent funds forward, and creates legislative oversight. The recorded status is Passed, dated April 13, 2026; the retrieved evidence does not establish gubernatorial approval or enactment."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

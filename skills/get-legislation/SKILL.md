@@ -1,20 +1,30 @@
 ---
 name: get-legislation
-description: Use for U.S. state legislative research, bill lookup, legislator contacts, roll calls, voting records, or requests to rank or predict state legislators. Establish scope and evidence rules before using Cicada Guide tools.
+description: Use when a user asks to find or research U.S. state bills, check recorded votes, or look up legislator contacts. Apply scope limits to unsupported legislative requests, including rankings and predictions.
 ---
 # Research U.S. state legislation
 
-Use the connected guide-public MCP tools. Read [tool-reference](references/tool-reference.md) for parameters and [workflows](references/workflows.md) for multi-step calls. Live host tool definitions take precedence over references; discover available definitions before calling. Namespace prefixes are assigned by the host, never hardcoded.
+Use the connected guide-public MCP tools. Discover live host tool definitions before calling; they govern parameters and take precedence over the snapshot. Namespace prefixes are assigned by the host, never hardcoded.
+
+## Load only relevant references
+Keep the shared rules below active. Read supporting detail only for the current task:
+
+- [Tool reference](references/tool-reference.md): look up only the named tool's section when its live definition is missing or unclear; do not read the full schema catalog by default. If the tool itself is unavailable, report the connection limitation.
+- [Worked sequences](references/workflows.md): read only the matching task or error-recovery section when an example is needed; skip unrelated bill, vote, contact, and troubleshooting sections.
+- [Bill brief](references/bill-brief-researcher.md): read for a substantive bill brief, not a simple bill search.
+- [Identity procedure](references/legislator-disambiguator.md): read when resolving a person or attributing votes or contacts.
+- [Defaults](references/defaults.md): read when applying conversation/project defaults or clarifying missing scope. An explicit current state/session overrides defaults.
+- [Governor rules](references/governor-action.md): read only for a question about general post-passage rules, never to infer a bill's outcome.
 
 ## Scope and defaults
-The dataset covers U.S. state legislatures, not Congress, municipal ordinances, ballot measures, regulations, or foreign legislatures. Explain unsupported scope without a misleading empty search. Call list_states to establish available jurisdictions. Follow [conversation defaults](references/defaults.md); ask for missing state/session when identity is ambiguous.
+The dataset covers U.S. state legislatures, not Congress, municipal ordinances, ballot measures, regulations, or foreign legislatures. Explain unsupported scope without a misleading empty search. Call list_states to establish available jurisdictions for supported lookups; ask for missing state/session when identity is ambiguous.
 
 Never rank, grade, score, or rate legislators, infer their ideology, or predict votes. Decline before calling tools and offer recorded votes or sponsorship instead. Tools are read-only and cannot send messages or contact officials.
 
 ## Evidence and identity
-Every factual claim about a bill, legislator, or vote must come from a Cicada Guide result in this conversation. Do not fill gaps from memory, news, web search, or a card's unseen data. Clearly label missing text, seats, records, partial results, and stale status. Provide returned source URLs. An enrolled document alone does not establish enactment; distinguish status and dated document observations. Use [governor-action](references/governor-action.md) only for general state rules, never to infer a bill's outcome.
+Every factual claim about a bill, legislator, or vote must come from a Cicada Guide result in this conversation. Do not fill gaps from memory, news, web search, or a card's unseen data. Clearly label missing text, seats, records, partial results, and stale status. Provide returned source URLs. An enrolled document alone does not establish enactment; distinguish status and dated document observations.
 
-Resolve names and states before attributing votes. search_people has no jurisdiction filter. Use the [identity procedure](references/legislator-disambiguator.md), verify returned seat and vote context, and ask when several candidates remain. No address-to-legislator lookup exists. Chamber/district may be stated only from returned seat data.
+Resolve names and states before attributing votes. search_people has no jurisdiction filter. Verify returned seat and vote context, and ask when several candidates remain. No address-to-legislator lookup exists. Chamber/district may be stated only from returned seat data.
 
 ## Calls and pagination
 Use actual schemas and never add unknown arguments. Supply context, llm_model, and conversation_id only when advertised: context is a short third-person purpose without names or private details; model is the known identifier or unknown. Reuse only a returned conversation identifier. No credentials are needed.

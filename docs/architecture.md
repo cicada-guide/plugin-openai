@@ -7,7 +7,7 @@ Cicada Guide is a portable instruction package connected to an independently hos
 | Component | Owns | Does not establish |
 | --- | --- | --- |
 | Manifest and MCP configuration | Package identity, listing/review metadata, anonymous endpoint declaration | Installed connection or publisher verification |
-| Four skills and references | Research procedure, identity/scope checks, defaults, evidence rules, card selection | Data freshness or model compliance before evaluation |
+| Setup, four research skills and references | Research procedure, identity/scope checks, defaults, evidence rules, card selection | Data freshness or model compliance before evaluation |
 | Companion OpenAI server | Tool schemas, legislative retrieval, card resources, rate limits, optional telemetry | Correct execution of packaged skills |
 | Host | Tool selection, skill execution, card rendering, conversation context | Submission approval |
 | Contributor tooling | Source checks, contract snapshots, icon rendering, archive integrity | Live ChatGPT rendering or a recorded demo |
@@ -28,4 +28,4 @@ The MCP base schema and documented OpenAI extension are validated separately. Se
 
 Local validation, live protocol evidence, packaged-skill evaluation, host rendering, a playable demo, and portal review are distinct states. The authoritative preparation status is [readiness](readiness.md), with supporting [validation](validation.md). Do not promote an unrun case to Passed based on a lower-level check.
 
-Decisions are recorded in [ADR-001](decisions/001-portable-package-existing-server.md), [ADR-002](decisions/002-host-independent-research-workflows.md), and [ADR-003](decisions/003-explicit-anonymous-auth-validation.md). Keep old ADRs when decisions change; add a successor and mark the old decision superseded.
+Decisions are recorded in [ADR-001](decisions/001-portable-package-existing-server.md), [ADR-002](decisions/002-host-independent-research-workflows.md), [ADR-003](decisions/003-explicit-anonymous-auth-validation.md), and [ADR-004](decisions/004-selective-references-and-dossier-evidence.md). Keep old ADRs when decisions change; add a successor and mark the old decision superseded.

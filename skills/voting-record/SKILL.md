@@ -1,6 +1,6 @@
 ---
 name: voting-record
-description: Use for one state legislator's recorded voting history, latest vote, vote on a specific bill, or a roll call's member and party breakdown.
+description: Use when a user asks how a U.S. state legislator voted, requests their latest recorded votes or voting history, or wants a roll call's member and party breakdown.
 ---
 # Report recorded votes
 

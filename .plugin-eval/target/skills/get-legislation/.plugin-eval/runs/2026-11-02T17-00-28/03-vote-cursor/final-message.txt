@@ -1,0 +1,9 @@
+Rex Reynolds’s latest recorded date is **May 8, 2026**, with one vote:
+
+| Bill / session | Motion | Position | Roll-call tally |
+| --- | --- | --- | --- |
+| SB1 / 2026 1st Special Session | Lee motion to Previous Question — Roll Call 3 | **YEA** | 75 yea, 29 nay, 1 absent, 0 not voting |
+
+Using `limit=1` and `latest=false`, I followed `next_cursor` to the next page, which returned May 6—confirming the latest date was exhausted. No intra-day order is inferred.
+
+The guide-public record supplied no direct vote source URL. The complete answer, MCP source details, freshness, and pagination verification are saved in [answer.md](answer.md).

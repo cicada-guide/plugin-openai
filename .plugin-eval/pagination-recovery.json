@@ -1,0 +1,67 @@
+{
+  "kind": "plugin-eval-benchmark",
+  "schemaVersion": 2,
+  "version": 2,
+  "targetKind": "skill",
+  "targetName": "get-legislation",
+  "runner": {
+    "type": "codex-cli",
+    "model": "gpt-6.1-sol",
+    "sandbox": "workspace-write",
+    "approvalPolicy": "never",
+    "extraArgs": [
+      "-c",
+      "mcp_servers.guide-public.url=\"https://openai.cicada.guide/mcp\""
+    ]
+  },
+  "workspace": {
+    "sourcePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\fixture",
+    "setupMode": "copy",
+    "preserve": "never"
+  },
+  "targetProvisioning": {
+    "mode": "isolated-skill-home"
+  },
+  "verifiers": {
+    "commands": []
+  },
+  "notes": [
+    "Codex compatibility benchmark, not native ChatGPT plugin installation or rendering.",
+    "All four source skills copied unchanged. Natural review prompts are wrapped with explicit skill-loading instructions.",
+    "Harness completed status only means process completion. Review tool traces and answers against successChecklist separately.",
+    "No shell verifiers: upstream harness hardcodes /bin/zsh, unavailable on Windows.",
+    "Token usage is full CLI context, not isolated incremental skill cost. One run per case; no statistical reliability claim."
+  ],
+  "scenarios": [
+    {
+      "id": "rollcall-pagination",
+      "title": "Live roll-call pagination",
+      "purpose": "Verify standalone roll-call continuation using real records.",
+      "userInput": "Use the current local Cicada Guide skills in .agents/skills. Read get-legislation and the relevant task skill. Use only configured guide-public MCP tools for legislative facts. This is a pagination/recovery test, not a request to modify records. Save your complete sourced answer to answer.md and include it in your final response. List every recorded floor-vote entry for Alabama HB591 in the 2026 Regular Session. For this test use get_rollcalls with limit=1 for every page, following returned next_offset until has_more=false. Do not substitute dossier votes for the paginated calls. Preserve per-record counts and warnings.",
+      "successChecklist": [
+        "Resolve state/session/bill from tool results.",
+        "Call get_rollcalls for every page with limit=1, same bill_id, and returned next_offset. Stop only at has_more=false; report all five records without adding duplicate tallies."
+      ]
+    },
+    {
+      "id": "offset-recovery",
+      "title": "Live invalid-offset recovery",
+      "purpose": "Verify model handling of a real read-only pagination error.",
+      "userInput": "Use the current local Cicada Guide skills in .agents/skills. Read get-legislation and the relevant task skill. Use only configured guide-public MCP tools for legislative facts. This is a pagination/recovery test, not a request to modify records. Save your complete sourced answer to answer.md and include it in your final response. Resolve Alabama HB591 in the 2026 Regular Session. First request its get_rollcalls at offset=999999 with limit=1 to exercise the out-of-range response. Then recover by starting at offset=0 with limit=1, follow all returned next_offset values, and provide a complete recorded-vote list. Explain the initial error rather than claiming the bill had no votes.",
+      "successChecklist": [
+        "Initial out-of-range response acknowledged as error/invalid page, not absence of votes.",
+        "Restart at offset=0 and follow returned next_offset until completion; no aggressive repeat of the failed page."
+      ]
+    },
+    {
+      "id": "vote-cursor",
+      "title": "Live vote cursor continuation",
+      "purpose": "Verify person vote cursor and same-date boundary.",
+      "userInput": "Use the current local Cicada Guide skills in .agents/skills. Read get-legislation and the relevant task skill. Use only configured guide-public MCP tools for legislative facts. This is a pagination/recovery test, not a request to modify records. Save your complete sourced answer to answer.md and include it in your final response. What are Alabama Representative Rex Reynolds’s latest recorded votes? For this test use get_person_votes with limit=1 and latest=false. Follow next_cursor until you have exhausted the most recent recorded date, fetching the next page to detect an older date if needed. Do not substitute offset pagination or invent intra-day order.",
+      "successChecklist": [
+        "Verify person/jurisdiction and request limit=1 with people_id.",
+        "Follow returned next_cursor until the latest-date boundary is established; report latest-date records only and coverage/freshness."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+Saved the complete sourced answer, record IDs, and pagination log to [answer.md](answer.md).
+
+Alabama HB591, 2026 Regular Session, returned **five recorded floor-vote entries**:
+
+| Date | Recorded description | Yea | Nay | Absent | NV | Total |
+|---|---|---:|---:|---:|---:|---:|
+| 2026-04-08 | Motion to Read a Third Time and Pass - Roll Call 1282 | 30 | 0 | 5 | 0 | 35 |
+| 2026-04-01 | Motion to Read a Third Time and Pass as Amended - Roll Call 1127 | 104 | 0 | 1 | 0 | 105 |
+| 2026-04-01 | Third Reading in House of Origin | 104 | 0 | 1 | 0 | 105 |
+| 2026-04-01 | HBIR: Passed by House of Origin | 104 | 0 | 1 | 0 | 105 |
+| 2026-04-01 | Motion to Adopt - Roll Call 1126 5VQZH63-1 | 104 | 0 | 1 | 0 | 105 |
+
+Source: configured guide-public `get_rollcalls`, using `limit=1` at offsets **0 → 1 → 2 → 3 → 4**, following each returned `next_offset`. The final page returned `has_more=false`. Every page returned `warnings: []`; no errors or retries occurred. No dossier votes were used, and records with identical tallies remain separate.
+
+The tool returned no vote-specific source URLs. It supplied an [official enrolled bill PDF](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf), which is a bill document rather than a roll-call citation.

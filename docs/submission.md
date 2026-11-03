@@ -11,10 +11,12 @@ Prepared November 2, 2026. **Not submission-ready; no upload performed.**
 - Countries: **United States** (`US`)
 - Commerce: **No payments or purchases**
 - Version: **0.1.0**
+- Website: https://cicada.guide
+- Privacy policy: https://cicada.guide/privacy-policy
 
-Research U.S. state legislation with sourced bill briefs, recorded voting histories, and legislator contact details. Explore bill results, bill workspaces, voting records, and contact cards. Read-only public records; no account or payment required. Coverage and freshness depend on the available records. Does not cover Congress or identify representatives by address, rank legislators, predict votes, or contact officials.
+Research U.S. state legislation with sourced bill briefs, recorded voting histories, and legislator contact details. Explore bill results, bill workspaces, voting records, and contact cards. Read-only public records. Coverage and freshness depend on the available records. Does not cover Congress or identify representatives by address, rank legislators, predict votes, or contact officials.
 
-Release notes: Initial ChatGPT package: four state legislative research skills, anonymous OpenAI MCP connection, and light/dark icon entries.
+Release notes: Initial ChatGPT package: guided onboarding, four state legislative research workflows, an anonymous MCP connection, and light/dark logo entries.
 
 These values, three example prompts, five positive cases and three negative cases are included in the package manifest. No translations are declared. [Review cases](review-cases.md) remain **Not run** in ChatGPT; successful protocol checks do not change that status.
 

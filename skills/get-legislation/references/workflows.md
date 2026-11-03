@@ -101,6 +101,8 @@ through `get_latest_bill_document`, and give the user an older version's `url` f
 
 ## How did the legislature vote on this bill
 
+If get_bill_dossier was already read, its rollcalls can supply the same evidence: accept it when has_more is false, count and total match items.length, and no floor-vote warning indicates incomplete retrieval. Otherwise continue get_rollcalls from the dossier's next_offset for the same bill_id, or start at offset 0 if metadata is missing/inconsistent or retrieval failed. Retain warnings even on the last page; disclose incomplete coverage when they remain. The sequence below is the standalone path when no usable dossier history exists.
+
 ```jsonc
 // 1. the floor votes that happened
 { "tool": "get_rollcalls", "arguments": { "bill_id": "<bill uuid>" } }

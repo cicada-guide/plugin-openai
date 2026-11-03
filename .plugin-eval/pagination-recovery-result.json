@@ -1,0 +1,575 @@
+{
+  "kind": "benchmark-run",
+  "createdAt": "2026-11-02T17:04:42.387Z",
+  "mode": "codex-cli",
+  "target": {
+    "kind": "skill",
+    "path": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation",
+    "entryPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\SKILL.md",
+    "name": "get-legislation",
+    "relativePath": ".plugin-eval/target/skills/get-legislation"
+  },
+  "codexVersion": "codex-cli 0.166.0-alpha.5.1",
+  "config": {
+    "source": "file",
+    "path": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\pagination-recovery.json",
+    "runnerType": "codex-cli",
+    "model": "gpt-6.1-sol",
+    "sandbox": "workspace-write",
+    "approvalPolicy": "never",
+    "scenarioCount": 3,
+    "workspaceSourcePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\fixture",
+    "workspaceSetupMode": "copy",
+    "workspacePreserve": "never",
+    "targetProvisioningMode": "isolated-skill-home",
+    "verifierCount": 0
+  },
+  "runDirectory": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28",
+  "usageLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\pagination-recovery-usage.jsonl",
+  "resultPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\pagination-recovery-result.json",
+  "summary": {
+    "scenarioCount": 3,
+    "completedScenarios": 3,
+    "failedScenarios": 0,
+    "sampleCount": 3,
+    "usageAvailability": "present",
+    "averageInputTokens": 402463.67,
+    "averageOutputTokens": 1978.67,
+    "averageTotalTokens": 404442.33,
+    "generatedFileCount": 3,
+    "generatedTestFileCount": 0,
+    "toolCallCount": 0,
+    "shellCommandCount": 0,
+    "failedShellCommands": 0,
+    "verifierPassCount": 0,
+    "verifierFailCount": 0
+  },
+  "scenarios": [
+    {
+      "id": "rollcall-pagination",
+      "title": "Live roll-call pagination",
+      "purpose": "Verify standalone roll-call continuation using real records.",
+      "successChecklist": [
+        "Resolve state/session/bill from tool results.",
+        "Call get_rollcalls for every page with limit=1, same bill_id, and returned next_offset. Stop only at has_more=false; report all five records without adding duplicate tallies."
+      ],
+      "status": "completed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 81105,
+      "prompt": "Use the current local Cicada Guide skills in .agents/skills. Read get-legislation and the relevant task skill. Use only configured guide-public MCP tools for legislative facts. This is a pagination/recovery test, not a request to modify records. Save your complete sourced answer to answer.md and include it in your final response. List every recorded floor-vote entry for Alabama HB591 in the 2026 Regular Session. For this test use get_rollcalls with limit=1 for every page, following returned next_offset until has_more=false. Do not substitute dossier votes for the paginated calls. Preserve per-record counts and warnings.",
+      "finalMessagePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\01-rollcall-pagination\\final-message.txt",
+      "finalMessagePreview": "Saved the complete sourced answer, record IDs, and pagination log to [answer.md](answer.md).\n\nAlabama HB591, 2026 Regular Session, returned **five recorded floor-vote entries**:\n\n| Date | Recorded description | Yea | Nay | Absent | NV | Total |\n|---|---|---:|---:|---:|---:|---:|\n| 2026-04-08 | Motion to Read a Third Time and Pass - Roll Call 1282 | 30 | 0 | 5 | 0 | 35 |\n| 2026-04-01 | Motion to Read a Third Time and Pass as Amended - Roll Call 1127 | 104 | 0 | 1 | 0 | 105 |\n| 2026-04-01 | Third Reading in House of Origin | 104 | 0 | 1 | 0 | 105 |\n| 2026-04-01 | HBIR: Passed by House of Origin | 104 | 0 | 1 | 0 | 105 |\n| 2026-04-01 | Motion to Adopt - Roll Call 1126 5VQZH63-1 | 104 | 0 | 1 | 0 | 105 |\n\nSource: configured guide-public `get_rollcalls`, using `limit=1` at offsets **0 → 1 → 2 → 3 → 4**, following each returned `next_offset`. The final page returned `has_more=false`. Every page returned `warnings: []`; no errors or retries occurred. No dossier votes were used, and records with identical tallies remain separate.\n\nThe tool returned no vote-specific source URLs. It supplied an [official enrolled bill PDF](https://alison.legislature.state.al.us/files/pdf/SearchableInstruments/2026RS/HB591-enr.pdf), which is a bill document rather than a roll-call citation.",
+      "rawEventLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\01-rollcall-pagination\\codex.stdout.jsonl",
+      "stderrLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\01-rollcall-pagination\\codex.stderr.log",
+      "usage": {
+        "input_tokens": 446812,
+        "output_tokens": 2041,
+        "total_tokens": 448853,
+        "raw": {
+          "input_tokens": 446812,
+          "cached_input_tokens": 419840,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2041,
+          "reasoning_output_tokens": 28
+        }
+      },
+      "usageAvailability": "present",
+      "telemetry": {
+        "threadId": "01a19d34-8c35-7022-ac03-67bc196c199e",
+        "eventCount": 34,
+        "ignoredLineCount": 0,
+        "finalStatus": "completed",
+        "errorMessages": [],
+        "toolCallCount": 0,
+        "shellCommandCount": 0,
+        "failedShellCommandCount": 0,
+        "toolNames": [],
+        "shellCommands": [],
+        "usage": {
+          "input_tokens": 446812,
+          "output_tokens": 2041,
+          "total_tokens": 448853,
+          "raw": {
+            "input_tokens": 446812,
+            "cached_input_tokens": 419840,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2041,
+            "reasoning_output_tokens": 28
+          }
+        },
+        "usageAvailability": "present"
+      },
+      "workspacePath": null,
+      "workspaceSummary": {
+        "addedFileCount": 1,
+        "modifiedFileCount": 0,
+        "deletedFileCount": 0,
+        "changedFileCount": 1,
+        "generatedFileCount": 1,
+        "generatedTestFileCount": 0,
+        "changedTestFileCount": 0,
+        "changedTextLineDelta": 31,
+        "changedFiles": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 31,
+            "lineDelta": 31
+          }
+        ],
+        "allChanges": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 31,
+            "lineDelta": 31
+          }
+        ]
+      },
+      "workspaceChanges": [
+        {
+          "path": "answer.md",
+          "status": "added",
+          "isText": true,
+          "lineCountBefore": 0,
+          "lineCountAfter": 31,
+          "lineDelta": 31
+        }
+      ],
+      "generatedCode": {
+        "checks": [
+          {
+            "id": "coverage-artifacts-unavailable",
+            "category": "coverage",
+            "severity": "info",
+            "status": "info",
+            "message": "No coverage artifacts were found for this target.",
+            "evidence": [
+              "../../../AppData/Local/Temp/plugin-eval-rollcall-pagination-hGIDot/workspace"
+            ],
+            "remediation": [
+              "Generate `lcov.info`, `coverage.xml`, or an Istanbul coverage JSON file if you want coverage scoring."
+            ],
+            "source": "core"
+          }
+        ],
+        "metrics": [
+          {
+            "id": "coverage_artifact_count",
+            "category": "coverage",
+            "value": 0,
+            "unit": "files",
+            "band": "info",
+            "source": "core"
+          }
+        ],
+        "artifacts": []
+      },
+      "verifierResults": [],
+      "installedTargetPath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-rollcall-pagination-hGIDot\\home\\.codex\\skills\\get-legislation",
+      "codexHomePath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-rollcall-pagination-hGIDot\\home\\.codex"
+    },
+    {
+      "id": "offset-recovery",
+      "title": "Live invalid-offset recovery",
+      "purpose": "Verify model handling of a real read-only pagination error.",
+      "successChecklist": [
+        "Initial out-of-range response acknowledged as error/invalid page, not absence of votes.",
+        "Restart at offset=0 and follow returned next_offset until completion; no aggressive repeat of the failed page."
+      ],
+      "status": "completed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 97164,
+      "prompt": "Use the current local Cicada Guide skills in .agents/skills. Read get-legislation and the relevant task skill. Use only configured guide-public MCP tools for legislative facts. This is a pagination/recovery test, not a request to modify records. Save your complete sourced answer to answer.md and include it in your final response. Resolve Alabama HB591 in the 2026 Regular Session. First request its get_rollcalls at offset=999999 with limit=1 to exercise the out-of-range response. Then recover by starting at offset=0 with limit=1, follow all returned next_offset values, and provide a complete recorded-vote list. Explain the initial error rather than claiming the bill had no votes.",
+      "finalMessagePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\02-offset-recovery\\final-message.txt",
+      "finalMessagePreview": "Saved the complete sourced answer to [answer.md](C:/Users/forre/AppData/Local/Temp/plugin-eval-offset-recovery-wvc3m8/workspace/answer.md).\n\nAlabama **HB591, 2026 Regular Session**, resolved to bill UUID `bb4693da-72c7-476c-8e11-81709813c76f`.\n\nThe initial `get_rollcalls(offset=999999, limit=1)` returned a validation error: offset must be ≤10,000. It did **not** indicate an absence of votes.\n\nRecovery followed every returned offset: **0 → 1 → 2 → 3 → 4**, with `limit=1`. The final page returned `has_more=false`; all pages had no warnings.\n\n| Date | Recorded description | Yea | Nay | Absent | NV |\n|---|---|---:|---:|---:|---:|\n| 2026-04-08 | Motion to Read a Third Time and Pass — Roll Call 1282 | 30 | 0 | 5 | 0 |\n| 2026-04-01 | Motion to Read a Third Time and Pass as Amended — Roll Call 1127 | 104 | 0 | 1 | 0 |\n| 2026-04-01 | Third Reading in House of Origin | 104 | 0 | 1 | 0 |\n| 2026-04-01 | HBIR: Passed by House of Origin | 104 | 0 | 1 | 0 |\n| 2026-04-01 | Motion to Adopt — Roll Call 1126 5VQZH63-1 | 104 | 0 | 1 | 0 |\n\nThese are all **five returned roll-call records**, preserved separately. Source: configured guide-public `get_rollcalls`; exact record IDs and pagination provenance are included in `answer.md`.",
+      "rawEventLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\02-offset-recovery\\codex.stdout.jsonl",
+      "stderrLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\02-offset-recovery\\codex.stderr.log",
+      "usage": {
+        "input_tokens": 445538,
+        "output_tokens": 2300,
+        "total_tokens": 447838,
+        "raw": {
+          "input_tokens": 445538,
+          "cached_input_tokens": 418304,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2300,
+          "reasoning_output_tokens": 23
+        }
+      },
+      "usageAvailability": "present",
+      "telemetry": {
+        "threadId": "01a19d35-cb76-7991-a81e-52a8e999d210",
+        "eventCount": 35,
+        "ignoredLineCount": 0,
+        "finalStatus": "completed",
+        "errorMessages": [],
+        "toolCallCount": 0,
+        "shellCommandCount": 0,
+        "failedShellCommandCount": 0,
+        "toolNames": [],
+        "shellCommands": [],
+        "usage": {
+          "input_tokens": 445538,
+          "output_tokens": 2300,
+          "total_tokens": 447838,
+          "raw": {
+            "input_tokens": 445538,
+            "cached_input_tokens": 418304,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2300,
+            "reasoning_output_tokens": 23
+          }
+        },
+        "usageAvailability": "present"
+      },
+      "workspacePath": null,
+      "workspaceSummary": {
+        "addedFileCount": 1,
+        "modifiedFileCount": 0,
+        "deletedFileCount": 0,
+        "changedFileCount": 1,
+        "generatedFileCount": 1,
+        "generatedTestFileCount": 0,
+        "changedTestFileCount": 0,
+        "changedTextLineDelta": 30,
+        "changedFiles": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 30,
+            "lineDelta": 30
+          }
+        ],
+        "allChanges": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 30,
+            "lineDelta": 30
+          }
+        ]
+      },
+      "workspaceChanges": [
+        {
+          "path": "answer.md",
+          "status": "added",
+          "isText": true,
+          "lineCountBefore": 0,
+          "lineCountAfter": 30,
+          "lineDelta": 30
+        }
+      ],
+      "generatedCode": {
+        "checks": [
+          {
+            "id": "coverage-artifacts-unavailable",
+            "category": "coverage",
+            "severity": "info",
+            "status": "info",
+            "message": "No coverage artifacts were found for this target.",
+            "evidence": [
+              "../../../AppData/Local/Temp/plugin-eval-offset-recovery-wvc3m8/workspace"
+            ],
+            "remediation": [
+              "Generate `lcov.info`, `coverage.xml`, or an Istanbul coverage JSON file if you want coverage scoring."
+            ],
+            "source": "core"
+          }
+        ],
+        "metrics": [
+          {
+            "id": "coverage_artifact_count",
+            "category": "coverage",
+            "value": 0,
+            "unit": "files",
+            "band": "info",
+            "source": "core"
+          }
+        ],
+        "artifacts": []
+      },
+      "verifierResults": [],
+      "installedTargetPath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-offset-recovery-wvc3m8\\home\\.codex\\skills\\get-legislation",
+      "codexHomePath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-offset-recovery-wvc3m8\\home\\.codex"
+    },
+    {
+      "id": "vote-cursor",
+      "title": "Live vote cursor continuation",
+      "purpose": "Verify person vote cursor and same-date boundary.",
+      "successChecklist": [
+        "Verify person/jurisdiction and request limit=1 with people_id.",
+        "Follow returned next_cursor until the latest-date boundary is established; report latest-date records only and coverage/freshness."
+      ],
+      "status": "completed",
+      "exitCode": 0,
+      "signal": null,
+      "durationMs": 73227,
+      "prompt": "Use the current local Cicada Guide skills in .agents/skills. Read get-legislation and the relevant task skill. Use only configured guide-public MCP tools for legislative facts. This is a pagination/recovery test, not a request to modify records. Save your complete sourced answer to answer.md and include it in your final response. What are Alabama Representative Rex Reynolds’s latest recorded votes? For this test use get_person_votes with limit=1 and latest=false. Follow next_cursor until you have exhausted the most recent recorded date, fetching the next page to detect an older date if needed. Do not substitute offset pagination or invent intra-day order.",
+      "finalMessagePath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\03-vote-cursor\\final-message.txt",
+      "finalMessagePreview": "Rex Reynolds’s latest recorded date is **May 8, 2026**, with one vote:\n\n| Bill / session | Motion | Position | Roll-call tally |\n| --- | --- | --- | --- |\n| SB1 / 2026 1st Special Session | Lee motion to Previous Question — Roll Call 3 | **YEA** | 75 yea, 29 nay, 1 absent, 0 not voting |\n\nUsing `limit=1` and `latest=false`, I followed `next_cursor` to the next page, which returned May 6—confirming the latest date was exhausted. No intra-day order is inferred.\n\nThe guide-public record supplied no direct vote source URL. The complete answer, MCP source details, freshness, and pagination verification are saved in [answer.md](answer.md).",
+      "rawEventLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\03-vote-cursor\\codex.stdout.jsonl",
+      "stderrLogPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\.plugin-eval\\runs\\2026-11-02T17-00-28\\03-vote-cursor\\codex.stderr.log",
+      "usage": {
+        "input_tokens": 315041,
+        "output_tokens": 1595,
+        "total_tokens": 316636,
+        "raw": {
+          "input_tokens": 315041,
+          "cached_input_tokens": 286848,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1595,
+          "reasoning_output_tokens": 44
+        }
+      },
+      "usageAvailability": "present",
+      "telemetry": {
+        "threadId": "01a19d37-4a51-7173-8133-cb74994e8379",
+        "eventCount": 29,
+        "ignoredLineCount": 0,
+        "finalStatus": "completed",
+        "errorMessages": [],
+        "toolCallCount": 0,
+        "shellCommandCount": 0,
+        "failedShellCommandCount": 0,
+        "toolNames": [],
+        "shellCommands": [],
+        "usage": {
+          "input_tokens": 315041,
+          "output_tokens": 1595,
+          "total_tokens": 316636,
+          "raw": {
+            "input_tokens": 315041,
+            "cached_input_tokens": 286848,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1595,
+            "reasoning_output_tokens": 44
+          }
+        },
+        "usageAvailability": "present"
+      },
+      "workspacePath": null,
+      "workspaceSummary": {
+        "addedFileCount": 1,
+        "modifiedFileCount": 0,
+        "deletedFileCount": 0,
+        "changedFileCount": 1,
+        "generatedFileCount": 1,
+        "generatedTestFileCount": 0,
+        "changedTestFileCount": 0,
+        "changedTextLineDelta": 21,
+        "changedFiles": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 21,
+            "lineDelta": 21
+          }
+        ],
+        "allChanges": [
+          {
+            "path": "answer.md",
+            "status": "added",
+            "isText": true,
+            "lineCountBefore": 0,
+            "lineCountAfter": 21,
+            "lineDelta": 21
+          }
+        ]
+      },
+      "workspaceChanges": [
+        {
+          "path": "answer.md",
+          "status": "added",
+          "isText": true,
+          "lineCountBefore": 0,
+          "lineCountAfter": 21,
+          "lineDelta": 21
+        }
+      ],
+      "generatedCode": {
+        "checks": [
+          {
+            "id": "coverage-artifacts-unavailable",
+            "category": "coverage",
+            "severity": "info",
+            "status": "info",
+            "message": "No coverage artifacts were found for this target.",
+            "evidence": [
+              "../../../AppData/Local/Temp/plugin-eval-vote-cursor-8tmuSm/workspace"
+            ],
+            "remediation": [
+              "Generate `lcov.info`, `coverage.xml`, or an Istanbul coverage JSON file if you want coverage scoring."
+            ],
+            "source": "core"
+          }
+        ],
+        "metrics": [
+          {
+            "id": "coverage_artifact_count",
+            "category": "coverage",
+            "value": 0,
+            "unit": "files",
+            "band": "info",
+            "source": "core"
+          }
+        ],
+        "artifacts": []
+      },
+      "verifierResults": [],
+      "installedTargetPath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-vote-cursor-8tmuSm\\home\\.codex\\skills\\get-legislation",
+      "codexHomePath": "C:\\Users\\forre\\AppData\\Local\\Temp\\plugin-eval-vote-cursor-8tmuSm\\home\\.codex"
+    }
+  ],
+  "nextSteps": [
+    "Analyze the observed usage with: plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/pagination-recovery-usage.jsonl --format markdown",
+    "Review the measurement plan with: plugin-eval measurement-plan ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/pagination-recovery-usage.jsonl --format markdown"
+  ],
+  "workflowGuide": {
+    "kind": "workflow-guide",
+    "createdAt": "2026-11-02T17:04:42.389Z",
+    "target": {
+      "kind": "skill",
+      "path": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation",
+      "entryPath": "C:\\Users\\forre\\Documents\\cicada-guide\\plugin-openai\\.plugin-eval\\target\\skills\\get-legislation\\SKILL.md",
+      "name": "get-legislation",
+      "relativePath": ".plugin-eval/target/skills/get-legislation"
+    },
+    "requestedGoal": "measure",
+    "requestedChatPrompt": null,
+    "requestRouting": null,
+    "recommendedWorkflowId": "measure",
+    "recommendedWorkflow": {
+      "id": "measure",
+      "label": "Measure Real Token Usage",
+      "chatPrompt": "Measure the real token usage of this skill.",
+      "summary": "Use this when you want real token usage instead of only the static estimate.",
+      "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "commands": [
+        "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+        "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+      ],
+      "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Measure the real token usage of this skill.' --format markdown"
+    },
+    "workflowStatus": {
+      "hasBenchmarkConfig": false,
+      "hasUsageLog": false
+    },
+    "beginnerSummary": "Start with a natural chat request, then let plugin-eval show the exact local command sequence behind it.",
+    "startHere": {
+      "chatPrompt": "Measure the real token usage of this skill.",
+      "label": "Measure Real Token Usage",
+      "summary": "Use this when you want real token usage instead of only the static estimate.",
+      "routingExplanation": "Plugin Eval recommended Measure Real Token Usage from the current local state for this skill.",
+      "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Measure the real token usage of this skill.' --format markdown",
+      "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "commands": [
+        "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+        "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+      ]
+    },
+    "entrypoints": [
+      {
+        "id": "analysis",
+        "label": "Full Skill Analysis",
+        "chatPrompt": "Give me a full analysis of this skill, including benchmark setup.",
+        "summary": "Use this when you want the full report and starter benchmark setup for this skill in one guided path.",
+        "firstCommand": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+          "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+          "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Give me a full analysis of this skill, including benchmark setup.' --format markdown"
+      },
+      {
+        "id": "evaluate",
+        "label": "Evaluate Skill",
+        "chatPrompt": "Evaluate this skill.",
+        "summary": "Start here when you want the overall report for a skill, including structure, budgets, and code checks.",
+        "firstCommand": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Evaluate this skill.' --format markdown"
+      },
+      {
+        "id": "budget",
+        "label": "Explain Token Budget",
+        "chatPrompt": "Explain the token budget for this skill.",
+        "summary": "Use this when the main question is why the skill feels expensive before you collect any live measurements.",
+        "firstCommand": "plugin-eval explain-budget ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval explain-budget ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Explain the token budget for this skill.' --format markdown"
+      },
+      {
+        "id": "measure",
+        "label": "Measure Real Token Usage",
+        "chatPrompt": "Measure the real token usage of this skill.",
+        "summary": "Use this when you want real token usage instead of only the static estimate.",
+        "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "commands": [
+          "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+          "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Measure the real token usage of this skill.' --format markdown"
+      },
+      {
+        "id": "benchmark",
+        "label": "Benchmark With Starter Scenarios",
+        "chatPrompt": "Help me benchmark this skill.",
+        "summary": "Use this when you want starter scenarios and a repeatable real-Codex benchmark run for this skill.",
+        "firstCommand": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+        "commands": [
+          "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'Help me benchmark this skill.' --format markdown"
+      },
+      {
+        "id": "next",
+        "label": "Start Here",
+        "chatPrompt": "What should I run next?",
+        "summary": "If you are new to plugin-eval, start with the overall evaluation report for this skill.",
+        "firstCommand": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown",
+        "commands": [
+          "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --format markdown"
+        ],
+        "startCommand": "plugin-eval start ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --request 'What should I run next?' --format markdown"
+      }
+    ],
+    "nextSteps": [
+      "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "plugin-eval benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --config ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark.json",
+      "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation/.plugin-eval/benchmark-usage.jsonl --format markdown"
+    ],
+    "nextAction": {
+      "label": "Measure Real Token Usage",
+      "why": "Plugin Eval recommended Measure Real Token Usage from the current local state for this skill.",
+      "command": "plugin-eval init-benchmark ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation",
+      "chatPrompt": "Measure the real token usage of this skill."
+    }
+  },
+  "nextAction": {
+    "label": "Fold the usage log back into analysis",
+    "why": "The Codex run produced observed usage, so the next step is to re-run analysis with those measurements.",
+    "command": "plugin-eval analyze ~/Documents/cicada-guide/plugin-openai/.plugin-eval/target/skills/get-legislation --observed-usage ~/Documents/cicada-guide/plugin-openai/.plugin-eval/pagination-recovery-usage.jsonl --format markdown",
+    "chatPrompt": "What should I run next?"
+  }
+}

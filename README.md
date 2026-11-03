@@ -8,12 +8,12 @@ Research U.S. state bills, text, sponsors, recorded votes, and legislator contac
 
 - `plugin.json`: Agent Plugins 1.0 identity, listing, review cases, and publication metadata.
 - `mcp.json`: anonymous Streamable HTTP connection named `guide-public`.
-- `skills/`: four workflows and supporting references.
+- `skills/`: guided setup, four research workflows, and supporting references.
 - `assets/`: creator-supplied PNG artwork and square 512px PNGs for both themes.
 - `scripts/`, `tests/`, `schemas/`: validation tools, excluded from the upload.
 - `docs/`: submission materials and dated evidence, excluded from the upload.
 
-The endpoint is `https://cicada-guide-mcp-openai.cicada-bot.workers.dev/mcp-openai`. Select **No authentication** when connecting. No API key, account, OAuth or authentication headers are needed. Portable configuration explicitly declares `extensions.com.openai.auth.type: "none"`, following the official OpenAI documentation. Live discovery found 17 tools and four card resources on November 2, 2026.
+The endpoint is `https://openai.cicada.guide/mcp`. Select **No authentication** when connecting. No API key, account, OAuth or authentication headers are needed. Portable configuration explicitly declares `extensions.com.openai.auth.type: "none"`, following the official OpenAI documentation. Live discovery found 17 tools and four card resources on November 2, 2026.
 
 ## Research workflows
 

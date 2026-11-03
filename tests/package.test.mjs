@@ -9,6 +9,16 @@ test('source package passes but reports missing public materials', () => {
   assert(result.submissionGaps.includes('demo_recording_url'));
   assert.deepEqual(result.submissionGaps, ['demo_recording_url']);
 });
+
+test('rejects missing, unsafe or unpackaged onboarding entrypoints', () => {
+  for (const onboarding of [undefined, '../setup/SKILL.md', './skills/missing/SKILL.md', './README.md']) {
+    assert(checkFiles(mutated('plugin.json', text => {
+      const plugin = JSON.parse(text);
+      plugin.extensions['com.openai'].onboardingSkill = onboarding;
+      return JSON.stringify(plugin);
+    })).failures.length);
+  }
+});
 test('rejects archive traversal and hidden compatibility manifests', () => {
   for (const name of ['../secret', '.app.json', '.codex-plugin/plugin.json', 'assets/../../secret']) assert(checkFiles({ ...files, [name]: Buffer.from('{}') }).failures.length);
 });

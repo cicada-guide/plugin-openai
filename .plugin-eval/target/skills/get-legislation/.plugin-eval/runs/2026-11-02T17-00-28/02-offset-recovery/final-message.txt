@@ -1,0 +1,17 @@
+Saved the complete sourced answer to [answer.md](C:/Users/forre/AppData/Local/Temp/plugin-eval-offset-recovery-wvc3m8/workspace/answer.md).
+
+Alabama **HB591, 2026 Regular Session**, resolved to bill UUID `bb4693da-72c7-476c-8e11-81709813c76f`.
+
+The initial `get_rollcalls(offset=999999, limit=1)` returned a validation error: offset must be ≤10,000. It did **not** indicate an absence of votes.
+
+Recovery followed every returned offset: **0 → 1 → 2 → 3 → 4**, with `limit=1`. The final page returned `has_more=false`; all pages had no warnings.
+
+| Date | Recorded description | Yea | Nay | Absent | NV |
+|---|---|---:|---:|---:|---:|
+| 2026-04-08 | Motion to Read a Third Time and Pass — Roll Call 1282 | 30 | 0 | 5 | 0 |
+| 2026-04-01 | Motion to Read a Third Time and Pass as Amended — Roll Call 1127 | 104 | 0 | 1 | 0 |
+| 2026-04-01 | Third Reading in House of Origin | 104 | 0 | 1 | 0 |
+| 2026-04-01 | HBIR: Passed by House of Origin | 104 | 0 | 1 | 0 |
+| 2026-04-01 | Motion to Adopt — Roll Call 1126 5VQZH63-1 | 104 | 0 | 1 | 0 |
+
+These are all **five returned roll-call records**, preserved separately. Source: configured guide-public `get_rollcalls`; exact record IDs and pagination provenance are included in `answer.md`.
