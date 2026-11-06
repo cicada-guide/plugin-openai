@@ -10,6 +10,8 @@ Discover the Cicada Guide tools exposed in this conversation before onboarding. 
 
 If the required tools are missing or the lookup fails, give the recovery step for the current host. Use `show_status` for the setup result if it works. If no status card can be delivered, report the setup result and any next step in a short chat message. Keep this fallback limited to setup and connection recovery. If the lookup succeeded but the card failed, report those outcomes separately.
 
+Use status kind `information` for introductions and successful checks, `clarification` for setup questions, and `error` for connection failures. Keep assistant commentary and final text empty when using cards. End the turn after the final card call succeeds.
+
 - In ChatGPT, enable or reconnect the Cicada Guide plugin and select it in a new chat. If the host supports adding a custom MCP server and the plugin connection is unavailable, use the endpoint below with authentication set to None.
 - In Codex, use the existing plugin connection when it exposes the tools. If it does not, check for an existing Codex MCP entry for this endpoint. If none exists and the user asked you to set up the connection, run the command below when the CLI is available. Otherwise give the command to the user. If the name is already in use for another server, leave that entry in place and use an unused name. If the endpoint is already configured, check that the entry is enabled. Start a new Codex session after configuration and rerun the connection check there.
 - In another MCP host, add or enable a Streamable HTTP server at the endpoint below, then open a session with that server enabled.
