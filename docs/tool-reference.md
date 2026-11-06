@@ -1,6 +1,6 @@
 # Live OpenAI tool reference
 
-Snapshot checked on 2026-11-02T14:50:34.034Z. The endpoint is unversioned; live host definitions take precedence. Analytics fields may appear only when instrumentation is enabled. Send only advertised parameters.
+Snapshot checked on 2026-11-06T07:48:07.701Z. The endpoint is unversioned; live host definitions take precedence. Analytics fields may appear only when instrumentation is enabled. Send only advertised parameters.
 
 ## search_bills
 
@@ -29,12 +29,12 @@ Input schema:
   "type": "object",
   "properties": {
     "bill": {
-      "description": "Bill number with its chamber prefix, e.g. 'HB 1' or 'SB314' \u2014 exact match, ignoring case, spaces and dots, so a named bill is found here rather than by query. 'HB 314' never matches HB 3140, and a number without a prefix ('314') matches nothing",
+      "description": "Bill number with its chamber prefix, e.g. 'HB 1' or 'SB314' — exact match, ignoring case, spaces and dots, so a named bill is found here rather than by query. 'HB 314' never matches HB 3140, and a number without a prefix ('314') matches nothing",
       "type": "string",
       "maxLength": 50
     },
     "query": {
-      "description": "Words matched separately (OR'ed, substring) in the title, plus full-text search of document text. One distinctive word is most precise",
+      "description": "Words matched separately (OR'ed, substring) in the title, plus full-text search of document text. Use bill for exact bill numbers; a standalone HB or SB number is also accepted here when bill is omitted",
       "type": "string",
       "maxLength": 500
     },
@@ -363,7 +363,7 @@ Input schema:
   "type": "object",
   "properties": {
     "ids": {
-      "description": "Person UUIDs to resolve in one call \u2014 pass people_id values from get_votes",
+      "description": "Person UUIDs to resolve in one call — pass people_id values from get_votes",
       "minItems": 1,
       "maxItems": 100,
       "type": "array",
@@ -699,12 +699,12 @@ Input schema:
   "type": "object",
   "properties": {
     "rollcall_id": {
-      "description": "Rollcall UUID, from get_rollcalls \u2014 votes for one floor vote (preferred)",
+      "description": "Rollcall UUID, from get_rollcalls — votes for one floor vote (preferred)",
       "type": "string",
       "format": "uuid"
     },
     "bill_id": {
-      "description": "Bill UUID \u2014 get votes across all rollcalls for a bill",
+      "description": "Bill UUID — get votes across all rollcalls for a bill",
       "type": "string",
       "format": "uuid"
     },
@@ -719,7 +719,7 @@ Input schema:
       ]
     },
     "people_id": {
-      "description": "Person UUID \u2014 filter to one legislator's votes",
+      "description": "Person UUID — filter to one legislator's votes",
       "type": "string",
       "format": "uuid"
     },
@@ -731,7 +731,7 @@ Input schema:
       "maximum": 100
     },
     "cursor": {
-      "description": "Keyset pagination cursor \u2014 pass next_cursor from previous response",
+      "description": "Keyset pagination cursor — pass next_cursor from previous response",
       "type": "string",
       "format": "uuid"
     },
@@ -831,7 +831,7 @@ Input schema:
       "maximum": 100
     },
     "cursor": {
-      "description": "Keyset pagination cursor \u2014 pass next_cursor from previous response",
+      "description": "Keyset pagination cursor — pass next_cursor from previous response",
       "type": "string",
       "maxLength": 512
     },
@@ -941,6 +941,40 @@ Input schema:
       ]
     }
   },
+  "additionalProperties": false
+}
+```
+
+## show_status
+
+Displays a clarification, scope limit, recoverable error, or informational response in Cicada Guide.
+
+Input schema:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "clarification",
+        "unsupported",
+        "error",
+        "information"
+      ]
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "User-facing text without credentials, private data, or internal diagnostics"
+    }
+  },
+  "required": [
+    "kind",
+    "message"
+  ],
   "additionalProperties": false
 }
 ```

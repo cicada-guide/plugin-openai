@@ -1,6 +1,6 @@
 # Submission readiness
 
-Status: **prepared but not submission-ready**. Checked November 2, 2026.
+Status: **prepared but not submission-ready**. Package and public endpoint checked November 6, 2026. Portal observations below are historical.
 
 ## Complete
 
@@ -9,11 +9,11 @@ Status: **prepared but not submission-ready**. Checked November 2, 2026.
 - Listing website and privacy policy now use `https://cicada.guide` and `https://cicada.guide/privacy-policy`, as selected by the creator. Both destinations returned HTTP 200 and their content was inspected. This does not establish that the general site's policy covers every connector-specific data practice. The existing portal draft has not been updated with these URL changes.
 - Portable package with five skills (setup and four research workflows), compact shared procedures, anonymous connection, licensing, and 512px icons using the creator-supplied blue and pink logo for both themes. Artwork proportions and transparency are preserved. See the small-size [preview](evidence/icons-48px.png).
 - Listing, three default prompts, five positive and three negative review cases, release notes, U.S. distribution and no-commerce declaration are stored in `plugin.json`.
-- Live initialization, annotations and all four resources passed. Real bill search/record/dossier/documents/text/rollcalls/breakdown and person/contact/vote/card payload calls passed. A nonexistent bill returned an empty result. These are protocol checks, not executions of packaged skills.
+- Live initialization, annotations and all five resources passed. Real bill search/record/dossier/documents/text/rollcalls/breakdown and person/contact/vote/card payload calls passed, including a clarification payload from the newly advertised `show_status` tool. A nonexistent bill returned an empty result. These checks exercise the protocol.
 - Public connector landing/privacy pages, Featurebase help center, and existing terms were inspected. The creator confirmed those terms apply. All four URLs are in the manifest. See [page evidence](evidence/pages.json) and [MCP evidence](evidence/live.json).
 - Live schemas omit analytics arguments. Skills send them only when advertised. No credentials or private account information are packaged.
 
-The installed skill uses live tool definitions. The [17-tool schema snapshot](tool-reference.md) supports contributor contract checks.
+The installed skill uses live tool definitions. The [18-tool schema snapshot](tool-reference.md) supports contributor contract checks.
 
 The compact guidance passed five directed Codex CLI cases covering exact lookup, a complete dossier brief, roll-call pagination, invalid-offset recovery, and person-vote cursor continuation. The lookup loaded no supporting references, and the brief loaded only its bill procedure. These checks used the public MCP server with explicit skill loading. Native ChatGPT rendering remains unverified.
 
@@ -21,7 +21,11 @@ The public MCP endpoint exposes show_status and its card resource. Live checks r
 
 ## Remaining gates
 
-The installed Codex package appended a written brief after calling the bill card for Alabama HB591. The source skills now require card-only output. A fresh installed-package run must verify the card renders and the assistant message stays empty.
+The installed Codex package appended a written brief after calling the bill card for Alabama HB591. The source skills now require card-only output. Two fresh isolated Codex runs called the bill card and left the final reply empty, but both emitted a skill-use announcement before reading the skill. Moving the card-only rule into discovery metadata did not suppress that announcement. The grader now checks all assistant messages. Native rendering and a turn with no assistant text remain unverified.
+
+The November 6 ChatGPT rehearsal using the visible `cicada.guide` connection failed with a generic internal error, including on retry. The app settings did not expose the endpoint or installed package version. Direct anonymous requests to the packaged endpoint succeeded with the same three diagnostic argument sets for `list_states`, `list_sessions`, and `search_bills`. A filtered Worker tail did not capture a corresponding retry or the direct control, so request arrival remains unverified.
+
+The November 6 protocol check found that the live bill workspace still declares `http://localhost:8787` as its UI domain and a CSP resource origin. The portal scan needs a fresh check after the server-side configuration is addressed. The public listing pages responded without login. The homepage describes the broader Cicada service and a different MCP endpoint, and the general privacy page leaves connector-specific coverage unverified.
 
 1. **ChatGPT verification:** the creator manually uploaded a new 0.1.0 draft in the cicada.bot organization, distinct from the older draft first inspected. Imported trigger descriptions and the openai.cicada.guide/mcp endpoint match the revised package. Anonymous connection and discovery of all 17 tools completed. The portal scan flags show_bill's template CSP as missing or too broad; domain verification and review information remain incomplete, and skill checks were still running at the last observation. The draft is not submitted or published. ChatGPT's installed-plugin search found no Cicada match, and the inspected draft menus offered no preview/install route. Exact-package rendering and the native [review cases](review-cases.md) remain unverified. See `.plugin-eval/pagination-recovery.md` and [scan screenshot](evidence/portal-csp-finding.jpg).
 2. **Demo recording:** follow the [recording script](demo.md), record real behavior, host it at a reviewer-accessible URL, verify playback, add `review.demo_recording_url`, and rebuild. A script is not a recording.
