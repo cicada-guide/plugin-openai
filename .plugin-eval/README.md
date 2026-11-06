@@ -20,6 +20,18 @@ The harness incorrectly classifies startup error objects as usage with zero toke
 
 ## Repeatable workflow
 
+### First-run Codex setup benchmark
+
+Run the setup benchmark against one checkout at a time. Give each run a separate, disposable Codex home under the OS temporary directory. Authenticate that profile before running and start without a `config.toml`. The runner uses the desktop runtime when `CODEX_APP_RUNTIME_CLI_PATH` is set.
+
+```powershell
+node .plugin-eval/setup-run.mjs --source <checkout> --eval-home <disposable-profile> --model gpt-6.1-sol
+```
+
+The first session explicitly loads the selected checkout's setup skill and must persist one enabled anonymous MCP entry. The second session starts with the same saved configuration and must call `list_states` and `show_status` without changing registrations. Use the same model and CLI for both arms. Each run prints its artifact directory, which contains the copied skills, raw JSONL traces, last assistant messages, and usage on success. Keep the artifacts local. Runner failures such as missing model access or missing terminal usage do not count as behavior results.
+
+This test covers Codex setup and reuse through explicit skill loading. Automatic plugin setup launch and ChatGPT card rendering require separate host tests.
+
 From the repository root in PowerShell:
 
 ```powershell
