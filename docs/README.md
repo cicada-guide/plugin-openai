@@ -15,6 +15,7 @@
 - [ADR-004: Selective references and equivalent dossier evidence](decisions/004-selective-references-and-dossier-evidence.md).
 - [ADR-005: Plugin onboarding](decisions/005-plugin-onboarding.md).
 - [ADR-006: Separate runtime guidance from the schema snapshot](decisions/006-runtime-reference-packaging.md).
+- [ADR-007: Present Cicada Guide responses in cards](decisions/007-card-only-responses.md).
 
 ## Submission preparation
 

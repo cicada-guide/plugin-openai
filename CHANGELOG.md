@@ -17,7 +17,7 @@ The prepared manifest version is `0.1.0`. It has not been uploaded, submitted, o
 
 ### Changed
 
-- Route plugin replies through Cicada Guide cards, including clarification and recoverable errors. ChatGPT handles failures that prevent card loading.
+- Deliver Cicada Guide research and status responses in cards with empty assistant messages.
 
 - Shortened the shared legislative skill and worked sequences. Moved the generated schema snapshot into contributor documentation.
 

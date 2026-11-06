@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Accepted. [ADR-007](007-card-only-responses.md) supersedes the written-answer requirement.
 
 ## Date
 

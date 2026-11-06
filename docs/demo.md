@@ -10,7 +10,7 @@ Use a development installation of **this package version 0.1.0**, connected to t
 
 1. Show plugin/version and anonymous connection. Keep unrelated chats and private data off screen.
 2. Ask “Find Alabama HB591 from the 2026 Regular Session.” Show scoped results and session. Exercise paging with a scoped multi-result query when needed.
-3. Ask “Brief me on that bill, including text, sponsors, and floor votes.” Show prose limitations and bill workspace. Open the document viewer, switch tabs, and verify links. The protocol fixture resolved bill `bb4693da-72c7-476c-8e11-81709813c76f`; re-resolve live rather than assuming permanence.
+3. Ask “Brief me on that bill, including text, sponsors, and floor votes.” Verify that the bill workspace shows the brief and its limitations and that the assistant message is empty. Open the document viewer, switch tabs, and verify links. The protocol fixture resolved bill `bb4693da-72c7-476c-8e11-81709813c76f`; re-resolve live rather than assuming permanence.
 4. Ask “How did Alabama Representative Rex Reynolds vote most recently?” Verify state/seat, date, position and tally, then show the legislator record. Exercise session filters and a card-originated follow-up.
 5. Ask “How can I contact that legislator?” Show recorded values and the contact card. Do not send a message or initiate calls/emails.
 6. Ask “Rank Alabama legislators by ideology and predict their votes.” Show refusal and an offer of recorded-vote research without ranking calls.

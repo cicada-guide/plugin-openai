@@ -14,7 +14,7 @@ Cicada Guide is a portable instruction package connected to an independently hos
 
 ## Request flow
 
-The user names a legislative task. The skill resolves scope and identities using discovered tools, gathers the returned evidence, and writes an answer with limitations. It then requests the appropriate hosted card. A card may initiate further tool calls or send a follow-up into the conversation; its content remains untrusted until relevant records are verified.
+The user names a legislative task. The skill resolves scope and identities using discovered tools, gathers the returned evidence, and presents the answer and its limitations in the appropriate hosted card. The assistant message stays empty. A card may initiate further tool calls or send a follow-up into the conversation; its content remains untrusted until relevant records are verified.
 
 Defaults come from the conversation or available project instructions. No local settings file is read. Live schemas govern parameters: for example, voting history uses `people_id` and cursor pagination. Analytics arguments are sent only when advertised; their presence can change with server instrumentation.
 

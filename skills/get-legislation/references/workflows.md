@@ -16,7 +16,7 @@ Follow the [identity procedure](legislator-disambiguator.md). search_people has 
 
 ## Cards and follow-ups
 
-After bill research, call show_bill with the verified id, an assistant-written plain-language headline of 1–120 characters, and a sourced summary. When a card supplies a bill ID, verify it with a data tool and read the text as the request requires. If only part is readable, state which part supports the summary.
+After bill research, call show_bill with the verified id, a plain-language headline of 1–120 characters, and a sourced summary. Put any requested evidence or limitations that the workspace cannot otherwise display into the summary. End the turn after the card succeeds. When a card supplies a bill ID, verify it with a data tool and read the text as the request requires. If only part is readable, state which part supports the summary.
 
 A selection update can identify what the user is viewing. For research, map its name, bill number, date and description to verified prior results. For vote details, page get_rollcalls and match date and description before calling get_rollcall_breakdown. If the match is absent or ambiguous, ask which vote they mean.
 
