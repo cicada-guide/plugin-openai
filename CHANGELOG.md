@@ -23,6 +23,8 @@ The prepared manifest version is `0.1.0`. It has not been uploaded, submitted, o
 
 ### Fixed
 
+- Verify the MCP connection during explicit setup and give host-specific recovery instructions when Cicada Guide tools are unavailable.
+
 - Moved Promptfoo setup, grader tests, recordings and starter files to the sibling promptfoo-evals/openai suite; restored the plugin README.
 - Set listing website and privacy policy to cicada.guide and cicada.guide/privacy-policy as selected by the creator.
 - Removed account/payment promotional wording from the public listing description.

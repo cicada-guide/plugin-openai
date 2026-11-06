@@ -4,7 +4,7 @@ Status: **prepared but not submission-ready**. Checked November 2, 2026.
 
 ## Complete
 
-- Added and registered the packaged setup skill for first-use task selection and connection recovery. Skill validation and the ten package tests pass. Host setup launch in fresh/existing conversations remains unverified; earlier benchmark results predate this addition.
+- The setup skill verifies the MCP connection and gives host-specific recovery instructions. With the revised skill loaded explicitly, Codex registered the anonymous endpoint in a fresh session. A second session reused the entry and successfully called list_states and show_status. Automatic setup launch and native ChatGPT card rendering remain unverified.
 - MCP endpoint updated to `https://openai.cicada.guide/mcp`; live protocol checks passed against this address. Listing URLs remain separate from the connection endpoint.
 - Listing website and privacy policy now use `https://cicada.guide` and `https://cicada.guide/privacy-policy`, as selected by the creator. Both destinations returned HTTP 200 and their content was inspected. This does not establish that the general site's policy covers every connector-specific data practice. The existing portal draft has not been updated with these URL changes.
 - Portable package with five skills (setup and four research workflows), compact shared procedures, anonymous connection, licensing, and 512px icons using the creator-supplied blue and pink logo for both themes. Artwork proportions and transparency are preserved. See the small-size [preview](evidence/icons-48px.png).

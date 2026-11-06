@@ -1,10 +1,32 @@
 ---
 name: setup
-description: Use when a user runs Cicada Guide setup, asks how to get started, or wants help choosing their first legislative research task. For a concrete bill, vote, or contact request, proceed directly to that workflow.
+description: Use when a user runs Cicada Guide setup, asks to connect or check its MCP server, or wants help getting started. For a concrete bill, vote, or contact request with a working connection, proceed directly to that workflow.
 ---
 # Get started with Cicada Guide
 
-Follow the shared card and connection rules for all onboarding responses. Use show_status for introductions, setup questions, and recoverable errors. Help the user reach their first useful research result. Reuse any task, state, session, or legislator already supplied in the conversation; do not restart onboarding or make a clear request wait for setup questions.
+## Connect and verify
+
+Discover the Cicada Guide tools exposed in this conversation before onboarding. Use the host-assigned tool names and live schemas. For an explicit setup or connection check, call `list_states` with the smallest supported read-only request. A successful result verifies the connection in this conversation. For an introduction only, use `show_status` without a separate lookup. If the user already supplied a research task and its tools are available, proceed directly to that task.
+
+If the required tools are missing or the lookup fails, give the recovery step for the current host. Use `show_status` for the setup result if it works. If no status card can be delivered, report the setup result and any next step in a short chat message. Keep this fallback limited to setup and connection recovery. If the lookup succeeded but the card failed, report those outcomes separately.
+
+Use status kind `information` for introductions and successful checks, `clarification` for setup questions, and `error` for connection failures. Keep assistant commentary and final text empty when using cards. End the turn after the final card call succeeds.
+
+- In ChatGPT, enable or reconnect the Cicada Guide plugin and select it in a new chat. If the host supports adding a custom MCP server and the plugin connection is unavailable, use the endpoint below with authentication set to None.
+- In Codex, use the existing plugin connection when it exposes the tools. If it does not, check for an existing Codex MCP entry for this endpoint. If none exists and the user asked you to set up the connection, run the command below when the CLI is available. Otherwise give the command to the user. If the name is already in use for another server, leave that entry in place and use an unused name. If the endpoint is already configured, check that the entry is enabled. Start a new Codex session after configuration and rerun the connection check there.
+- In another MCP host, add or enable a Streamable HTTP server at the endpoint below, then open a session with that server enabled.
+
+The public endpoint is `https://openai.cicada.guide/mcp`. It requires no API key, OAuth login, or password.
+
+```sh
+codex mcp add guide-public --url https://openai.cicada.guide/mcp
+```
+
+Saving configuration does not verify the connection. After the host loads the connection, rediscover the tools and retry the failed lookup or resume the supplied task. If the same failure persists, report the failing step and stop retrying until the connection changes. Card rendering is verified only when observed in the host.
+
+## Choose a starting task
+
+Use `show_status` for introductions and setup questions. Reuse any task, state, session, or legislator already supplied in the conversation.
 
 For a new user without a task, briefly explain that Cicada Guide researches U.S. state legislation and recorded legislator information. It reads public records and does not send messages to officials. Offer these starting points in ordinary language:
 
@@ -21,8 +43,4 @@ If the user supplies a default state or session, apply it in this conversation a
 
 Read the [shared research rules](../get-legislation/SKILL.md), then use only the relevant workflow: [bill brief](../research-legislation/SKILL.md), [voting records](../voting-record/SKILL.md), or [contacts](../contact-legislator/SKILL.md). A simple bill search uses the shared rules directly. Keep references selective and follow live tool definitions.
 
-Use the discovered guide-public tools for the chosen task. For an introduction, use show_status without a separate connection probe. For a requested connection check, use the live list_states definition for a small read-only lookup; report what actually succeeded, not that all workflows or cards are verified.
-
-If a call fails and show_status is available, explain the specific limitation in the status card and guide the user to enable or reconnect Cicada Guide in their host, then retry the affected read after the connection changes. No service credentials are needed for the anonymous endpoint; never ask for an API key or a personal account password. Do not install another plugin, modify a server, or change account settings as an automatic setup step. Do not loop on an unchanged failure or substitute legislative facts from general knowledge.
-
-Finish onboarding when the user has a useful sourced result, knows the next input needed, or has a concrete connection-recovery step. Do not claim setup completed merely because the skill was opened. Card rendering remains unverified until actually observed in the host.
+Use the discovered Cicada Guide tools for the chosen task. If the connection fails, use the recovery steps above. Use Cicada Guide results for legislative facts.

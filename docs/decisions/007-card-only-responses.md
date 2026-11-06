@@ -4,4 +4,4 @@ Accepted November 6, 2026. This supersedes the written-answer requirement in [AD
 
 The installed package requested a bill card and then repeated the brief in chat. Present research in its result card and use the status card for clarifications, scope limits, and recoverable errors. Include evidence gaps in the card. Keep assistant commentary and final messages empty.
 
-Hosts own card rendering and connection errors. Verify that the installed package renders the card and leaves the assistant message empty. Package checks and successful tool responses cover separate gates.
+Hosts own card rendering. If setup cannot deliver a status card, it may give a short connection result and recovery step in chat. Verify that the installed package renders the card and leaves the assistant message empty when the card succeeds. Package checks and successful tool responses cover separate gates.
